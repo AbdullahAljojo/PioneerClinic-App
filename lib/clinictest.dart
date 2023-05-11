@@ -9,7 +9,7 @@ class MyWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(' it\'s test 😎😂'),
+        title: const Text(' it\'s test  😎😂'),
       ),
     );
   }
