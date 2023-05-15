@@ -2,6 +2,7 @@ import 'package:clinicmanagement/pages/login/InputFeild.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:get/get.dart';
+import 'package:sizer/sizer.dart';
 
 class InputWarapper extends StatelessWidget {
   const InputWarapper({Key? key}) : super(key: key);
@@ -14,12 +15,12 @@ class InputWarapper extends StatelessWidget {
         children: [
           Container(
             decoration: BoxDecoration(
-                color: const Color(0xff002c42),
+                color: const Color(0xff11CCC3),
                 borderRadius: BorderRadius.circular(10)),
             child: const InputField(),
           ),
           const SizedBox(height: 30),
-           Text(
+          Text(
             "Forgot Password?",
             style: TextStyle(
               color: Colors.white,
@@ -32,23 +33,23 @@ class InputWarapper extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-               Text(
+              Text(
                 "Don't have an account? ",
-                style:
-                TextStyle(fontFamily: 'font',fontStyle: FontStyle.italic, color: Colors.white),
+                style: TextStyle(
+                    fontFamily: 'font',
+                    fontStyle: FontStyle.italic,
+                    color: Colors.white),
               ),
               InkWell(
-                child:  Text(
+                child: Text(
                   "Register",
                   style: TextStyle(
-                    fontSize: 16,
+                    fontSize: 16.sp,
                     fontWeight: FontWeight.bold,
-                    color: Color(0xffffdf07),
+                    color: Color(0xffFFBA5A),
                   ),
                 ),
-                onTap: () {
-                  
-                },
+                onTap: () {},
               )
             ],
           )

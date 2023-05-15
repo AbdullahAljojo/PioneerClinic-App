@@ -69,29 +69,33 @@ class _InputField extends State<InputField> {
         showDialog(
             context: context,
             builder: (context) {
-              Future.delayed(const Duration(seconds: 3),
-                      () => Navigator.of(context).pop());
-              return  Column(
+              Future.delayed(const Duration(seconds: 4),
+                  () => Navigator.of(context).pop());
+              return Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children:  <Widget>[
-                  Lottie.asset('assets/images/loadingCir.json',height: 20.h),
-                  Text("LOADING..",style: TextStyle(color: Colors.white,fontSize: 21.sp,fontFamily: 'font',letterSpacing: 1),),
+                children: <Widget>[
+                  Lottie.asset('assets/images/loading.json',
+                      height: 100.sp, fit: BoxFit.cover),
+                  Text(
+                    "LOADING..",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 21.sp,
+                        fontFamily: 'font',
+                        letterSpacing: 1),
+                  ),
                 ],
-
               );
             }).whenComplete(() {
-          sharedPref?.getString('role')=='Doctor'?Navigator.of(context)
-              .pushNamedAndRemoveUntil('DoctorHome', (route) => false):Navigator.of(context)
-              .pushNamedAndRemoveUntil('UserHome', (route) => false);
+          Navigator.of(context)
+              .pushNamedAndRemoveUntil('Setting', (route) => false);
           ScaffoldMessenger.of(context)
             ..removeCurrentSnackBar()
             ..showSnackBar(SnackBar(
               content: Text('Your Email is $emailControl'),
             ));
         });
-
       }
-
     }
 
     return Stack(children: [
@@ -111,15 +115,15 @@ class _InputField extends State<InputField> {
                       border: InputBorder.none,
                       suffixIcon: emailcontroller.text.isEmpty
                           ? Container(
-                        width: 0,
-                      )
+                              width: 0,
+                            )
                           : IconButton(
-                        icon: const Icon(
-                          Icons.close,
-                          color: Colors.white54,
-                        ),
-                        onPressed: () => emailcontroller.clear(),
-                      )),
+                              icon: const Icon(
+                                Icons.close,
+                                color: Colors.white54,
+                              ),
+                              onPressed: () => emailcontroller.clear(),
+                            )),
                   style: const TextStyle(color: Colors.white),
                   keyboardType: TextInputType.emailAddress,
                   textInputAction: TextInputAction.done,
@@ -139,14 +143,14 @@ class _InputField extends State<InputField> {
                     suffixIcon: IconButton(
                         icon: _securpass
                             ? const Icon(
-                          Icons.visibility_off,
-                          color: Colors.white54,
-                        )
+                                Icons.visibility_off,
+                                color: Colors.white54,
+                              )
                             : const Icon(Icons.visibility,
-                            color: Color(0xffffdf07)),
+                                color: Color(0xffFFBA5A)),
                         onPressed: () => setState(() {
-                          _securpass = !_securpass;
-                        }))),
+                              _securpass = !_securpass;
+                            }))),
                 style: const TextStyle(color: Colors.white),
                 textInputAction: TextInputAction.done,
                 obscureText: _securpass,
@@ -156,11 +160,10 @@ class _InputField extends State<InputField> {
               height: 40,
             ),
             InkWell(
-              child:  MyButton(),
-              onTap: () async {
-                signinemail();
-              }
-            )
+                child: MyButton(),
+                onTap: () async {
+                  signinemail();
+                })
           ],
         ),
       ),

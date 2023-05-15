@@ -30,7 +30,7 @@ class LoginPage extends StatelessWidget {
                       child: Container(
                           height: MediaQuery.of(context).size.height / 1.8,
                           decoration: const BoxDecoration(
-                              color: Color(0xff002c42),
+                              color: Color(0xff11CCC3),
                               borderRadius: BorderRadius.only(
                                 topLeft: Radius.circular(60),
                                 topRight: Radius.circular(60),

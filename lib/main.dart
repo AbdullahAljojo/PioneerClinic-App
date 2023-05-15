@@ -1,26 +1,56 @@
+import 'package:clinicmanagement/modul.dart/onBoarding.dart';
+import 'package:clinicmanagement/modul.dart/setting/settingStates.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sizer/sizer.dart';
+import 'components.dart/blocObserver.dart';
+import 'components.dart/cachHelper.dart';
+import 'components.dart/theme.dart';
+import 'modul.dart/setting/setting.dart';
+import 'modul.dart/setting/settingCubit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'pages/login/View.dart';
 
 SharedPreferences? sharedPref;
-late double width;
-
-void main() async {
-  width = 100.0; // Initialize the late variable
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   sharedPref = await SharedPreferences.getInstance();
-  runApp(const MyApp());
+  Bloc.observer = MyBlocObserver();
+
+  await CacheHelper.init();
+  bool? isDark = CacheHelper.get(key: 'isDark');
+
+  runApp(MyApp(isDark));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final bool? isDark;
+  MyApp(this.isDark);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'ClinicManagement',
-      home: const LoginPage(),
-    );
+    return BlocProvider(
+        create: (context) => SettingCubit()..changeMode(fromShared: isDark),
+        child: BlocConsumer<SettingCubit, SettingStates>(
+            listener: (context, state) {},
+            builder: (context, state) {
+              return Sizer(
+                builder: (BuildContext context, Orientation orientation,
+                    DeviceType deviceType) {
+                  return MaterialApp(
+                      theme: light,
+                      darkTheme: dark,
+                      themeMode: SettingCubit.get(context).isDark
+                          ? ThemeMode.dark
+                          : ThemeMode.light,
+                      debugShowCheckedModeBanner: false,
+                      home: const LoginPage(),
+                      routes: {
+                        'Setting': (context) => Setting(),
+                      });
+                },
+              );
+            }));
   }
 }

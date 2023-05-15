@@ -14,46 +14,50 @@ class _AppHeaderState extends State<AppHeader> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 62),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Column(
-            children: [
-              Text(
-                'Welcom back',
-                style: TextStyle(
-                    fontFamily: 'font',
-                    fontSize: 32,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xff002C42)),
-              ),
-              Center(
-                  child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text("L",
-                      style: TextStyle(
-                          fontFamily: 'font',
-                          color: Color(0xff002C42),
-                          fontSize: 22,
-                          fontWeight: FontWeight.w400)),
-                  Text("hiiii",
-                      style: TextStyle(
-                          fontFamily: 'font',
-                          color: Color(0xff002C42),
-                          fontSize: 22,
-                          fontWeight: FontWeight.w400)),
-                ],
-              )),
-            ],
-          ),
-          Container(
-            alignment: Alignment.center,
-            height: 180.sp,
-            child: Lottie.asset('assets/images/login.json'),
-          ),
-        ],
+      padding: const EdgeInsets.only(top: 40),
+      child: Padding(
+        padding: const EdgeInsets.only(bottom: 100),
+        child: Stack(
+          children: [
+            Column(
+              children: [
+                Text(
+                  'Welcom back',
+                  style: TextStyle(
+                      fontFamily: 'font',
+                      fontSize: 24.sp,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xff002C42)),
+                ),
+                Center(
+                    child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text("You are Login as",
+                        style: TextStyle(
+                            fontFamily: 'font',
+                            color: Color(0xff002C42),
+                            fontSize: 15.sp,
+                            fontWeight: FontWeight.w400)),
+                    Text(" a Doctor",
+                        style: TextStyle(
+                            fontFamily: 'font',
+                            color: Color(0xff002C42),
+                            fontSize: 15.sp,
+                            fontWeight: FontWeight.w400)),
+                  ],
+                )),
+              ],
+            ),
+            Container(
+              padding: EdgeInsets.only(top: 40),
+              alignment: Alignment.topCenter,
+              height: 170.sp,
+              child: Lottie.asset('assets/images/login.json',
+                  fit: BoxFit.cover, width: 250.sp),
+            ),
+          ],
+        ),
       ),
     );
   }
