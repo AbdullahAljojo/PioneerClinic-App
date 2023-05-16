@@ -63,8 +63,8 @@ class _InputField extends State<InputField> {
         };
 
         final String emailControl = emailcontroller.text;
-        sharedPref?.setString('_email', emailControl);
-        sharedPref?.setBool('isAuthorized', true);
+        // sharedPref?.setString('_email', emailControl);
+        // sharedPref?.setBool('isAuthorized', true);
 
         showDialog(
             context: context,
@@ -75,9 +75,9 @@ class _InputField extends State<InputField> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Lottie.asset('assets/images/loading.json',
-                      height: 100.sp, fit: BoxFit.cover),
+                      height: 80.sp, fit: BoxFit.cover),
                   Text(
-                    "LOADING..",
+                    "Please Wait..",
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 21.sp,
@@ -88,7 +88,7 @@ class _InputField extends State<InputField> {
               );
             }).whenComplete(() {
           Navigator.of(context)
-              .pushNamedAndRemoveUntil('Setting', (route) => false);
+              .pushNamedAndRemoveUntil('Home', (route) => false);
           ScaffoldMessenger.of(context)
             ..removeCurrentSnackBar()
             ..showSnackBar(SnackBar(

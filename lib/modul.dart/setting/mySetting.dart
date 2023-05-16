@@ -6,8 +6,8 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class Setting extends StatelessWidget {
-  const Setting({super.key});
+class mySetting extends StatelessWidget {
+  const mySetting({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,11 +22,10 @@ class Setting extends StatelessWidget {
           children: [
             BackGround('assets/images/Processing-bro (1).png', 0.2),
 
-          
             Column(
               children: [
-                Stack(
-                  children:[ CircleAvatar(
+                Stack(children: [
+                  CircleAvatar(
                     backgroundImage: NetworkImage(
                         'https://image.shutterstock.com/image-photo/closeup-photo-amazing-short-hairdo-260nw-1617540484.jpg'),
                     radius: 70,
@@ -39,31 +38,30 @@ class Setting extends StatelessWidget {
                   //   backgroundColor: Colors.green,
                   //   radius: 7,
                   // ),
-                  Icon(Icons.edit)]
-                ),
-                
+                  Icon(Icons.edit)
+                ]),
                 Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: Center(
                     child: Container(
                       height: 500,
-                      child: GridView.count(crossAxisCount: 2,
-                      mainAxisSpacing: 20,
-                      crossAxisSpacing: 20,
-                      children: [
-                        item(
-                           text: 'change mode',
-                               icon: IconButton(
-                                   icon: const Icon(
-                                     Icons.brightness_4_outlined,
-                                     size: 30,
-                                   ),
-                                   onPressed: () {
-                                     SettingCubit.get(context).changeMode();
-                                   })
-                        ),
-                        item(
-                                      text: 'change language',
+                      child: GridView.count(
+                        crossAxisCount: 2,
+                        mainAxisSpacing: 20,
+                        crossAxisSpacing: 20,
+                        children: [
+                          item(
+                              text: 'change mode',
+                              icon: IconButton(
+                                  icon: const Icon(
+                                    Icons.brightness_4_outlined,
+                                    size: 30,
+                                  ),
+                                  onPressed: () {
+                                    SettingCubit.get(context).changeMode();
+                                  })),
+                          item(
+                              text: 'change language',
                               icon: IconButton(
                                   icon: const Icon(
                                     Icons.language_rounded,
@@ -72,9 +70,9 @@ class Setting extends StatelessWidget {
                                   onPressed: () {})),
                           const SizedBox(
                             height: 30,
-                        ),
-                        item(
-                                       text: 'log out',
+                          ),
+                          item(
+                              text: 'log out',
                               icon: IconButton(
                                   icon: const Icon(
                                     Icons.logout_outlined,
@@ -83,8 +81,9 @@ class Setting extends StatelessWidget {
                                   onPressed: () {})),
                           const SizedBox(
                             height: 30,
-                        ),
-                      ],),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -93,7 +92,7 @@ class Setting extends StatelessWidget {
             // Padding(
             //   padding: const EdgeInsets.all(20.0),
             //   child: SingleChildScrollView(
-            //     child: 
+            //     child:
             //     Column(
             //       mainAxisAlignment: MainAxisAlignment.center,
             //       children: [
@@ -173,24 +172,27 @@ class Setting extends StatelessWidget {
 //         const Spacer(),
 //         icon
 //       ],
-      
+
 //     ));
 
 Widget item({required String text, required IconButton icon}) => Card(
-  
-  color: Colors.grey,
- elevation: 20,
+      color: Colors.grey,
+      elevation: 20,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-             icon ,
-            const SizedBox(height: 10,),
-            Text( '$text',
-            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
-                ],
+            icon,
+            const SizedBox(
+              height: 10,
+            ),
+            Text(
+              '$text',
+              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            ),
+          ],
         ),
       ),
     );

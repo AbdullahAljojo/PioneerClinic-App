@@ -10,7 +10,7 @@ class MyButton extends StatelessWidget {
       height: 50.sp,
       margin: const EdgeInsets.symmetric(horizontal: 90),
       decoration: BoxDecoration(
-        color: const Color(0xffFFBA5A),
+        color: Colors.white,
         borderRadius: BorderRadius.circular(20),
       ),
       child: Center(
@@ -18,7 +18,7 @@ class MyButton extends StatelessWidget {
           "Login",
           style: TextStyle(
             fontFamily: 'font',
-            color: Colors.white,
+            color: Color(0xff11CCC3),
             fontSize: 16.sp,
             fontWeight: FontWeight.bold,
           ),
