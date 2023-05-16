@@ -1,4 +1,5 @@
 import 'package:clinicmanagement/modul.dart/onBoarding.dart';
+import 'package:clinicmanagement/modul.dart/profile.dart/profile.dart';
 import 'package:clinicmanagement/modul.dart/setting/settingStates.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -45,7 +46,7 @@ class MyApp extends StatelessWidget {
                           ? ThemeMode.dark
                           : ThemeMode.light,
                       debugShowCheckedModeBanner: false,
-                      home: const LoginPage(),
+                      home: const ProfileScreen(),
                       routes: {
                         'Setting': (context) => Setting(),
                       });
