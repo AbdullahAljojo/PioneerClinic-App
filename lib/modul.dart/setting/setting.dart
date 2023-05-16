@@ -26,20 +26,7 @@ class _SettingState extends State<Setting> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-          title: Row(
-        children: [
-          Icon(Icons.settings_rounded),
-          Text(
-            '  Settings',
-            //style:TextStyle(color:Color(0xFF11CCC3) )
-            style: TextStyle(
-                fontSize: 30, fontWeight: FontWeight.bold, fontFamily: 'font'),
-          ),
-        ],
-      )),
-      body: Stack(
+    return  Stack(
         children: [
           Container(
             alignment: Alignment.bottomCenter,
@@ -284,7 +271,7 @@ class _SettingState extends State<Setting> {
                 ),
               )))
         ],
-      ),
+
     );
   }
 }

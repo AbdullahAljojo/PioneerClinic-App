@@ -63,8 +63,8 @@ class _InputField extends State<InputField> {
         };
 
         final String emailControl = emailcontroller.text;
-        sharedPref?.setString('_email', emailControl);
-        sharedPref?.setBool('isAuthorized', true);
+        // sharedPref?.setString('_email', emailControl);
+        // sharedPref?.setBool('isAuthorized', true);
 
         showDialog(
             context: context,
