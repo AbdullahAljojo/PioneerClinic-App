@@ -3,6 +3,7 @@ import 'package:clinicmanagement/modul.dart/setting/settingStates.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
+import 'Widgets.dart/Navigation_Bar.dart';
 import 'components.dart/blocObserver.dart';
 import 'components.dart/cachHelper.dart';
 import 'components.dart/theme.dart';
@@ -10,6 +11,8 @@ import 'modul.dart/setting/setting.dart';
 import 'modul.dart/setting/settingCubit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'pages/Home/homeView.dart';
+import 'pages/MedicalInformatic/View.dart';
 import 'pages/login/View.dart';
 
 SharedPreferences? sharedPref;
@@ -45,9 +48,11 @@ class MyApp extends StatelessWidget {
                           ? ThemeMode.dark
                           : ThemeMode.light,
                       debugShowCheckedModeBanner: false,
-                      home: const LoginPage(),
+                      home: LoginPage(),
                       routes: {
                         'Setting': (context) => Setting(),
+                        'MedicalInfo': (context) => MedicalInfo(),
+                        'Home': (context) => Home(),
                       });
                 },
               );

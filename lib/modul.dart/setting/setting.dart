@@ -30,9 +30,9 @@ class _SettingState extends State<Setting> {
       appBar: AppBar(
           title: Row(
         children: [
-          Icon(Icons.arrow_back),
+          Icon(Icons.settings_rounded),
           Text(
-            '  Setting',
+            '  Settings',
             //style:TextStyle(color:Color(0xFF11CCC3) )
             style: TextStyle(
                 fontSize: 30, fontWeight: FontWeight.bold, fontFamily: 'font'),
@@ -250,7 +250,7 @@ class _SettingState extends State<Setting> {
                               child: Column(
                                 children: <Widget>[
                                   Icon(
-                                    Icons.login_outlined,
+                                    Icons.settings_power_outlined,
                                     color: Color(0xff11CCC3),
                                   ),
                                   SizedBox(
