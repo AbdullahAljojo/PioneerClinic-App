@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'dummy_data/clinics_dummy_data.dart';
 import '../doctor/doctor_screen.dart';
-import '../../Models/models/clinic.dart';
+import '../../models/clinic.dart';
 
 class HOME extends StatefulWidget {
   const HOME({super.key});
