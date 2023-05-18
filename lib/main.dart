@@ -1,27 +1,20 @@
-import 'package:clinicmanagement/modul.dart/onBoarding.dart';
-import 'package:clinicmanagement/modul.dart/profile.dart/profile.dart';
-import 'package:clinicmanagement/modul.dart/profile.dart/profileCubit.dart';
-import 'package:clinicmanagement/modul.dart/setting/settingStates.dart';
+import 'package:clinicmanagement/Screens/infoDoctor/profile.dart';
+import 'package:clinicmanagement/Screens/infoDoctor/profileCubit.dart';
+import 'package:clinicmanagement/Screens/Setting/settingStates.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
-import 'bottomnav/bottomNavigation.dart';
-import 'components.dart/blocObserver.dart';
-import 'components.dart/cachHelper.dart';
-import 'components.dart/theme.dart';
-import 'home.dart';
-import 'modul.dart/profile.dart/p.dart';
-import 'modul.dart/setting/setting.dart';
-import 'modul.dart/setting/settingCubit.dart';
+import 'Components.dart/Widgets.dart/Navigation_Bar.dart';
+import 'Components.dart/blocObserver.dart';
+import 'Components.dart/cachHelper.dart';
+import 'Components.dart/theme.dart';
+import 'Screens/Homes/home.dart';
+import 'Screens/infoDoctor/p.dart';
+import 'Screens/Setting/setting.dart';
+import 'Screens/Setting/settingCubit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-<<<<<<< HEAD
-import 'pages/Home/homeView.dart';
-import 'pages/MedicalInformatic/View.dart';
-=======
-
->>>>>>> f3b1a76f03136a2a14aeaa4bedc4b3da53970d46
-import 'pages/login/View.dart';
-import 'pages/profile/ClinicProfile.dart';
+import 'Screens/Homes/homeTest.dart';
+import 'Screens/MedicalInformatic/View.dart';
 
 SharedPreferences? sharedPref;
 
@@ -67,12 +60,9 @@ class MyApp extends StatelessWidget {
                       home: const Profile(),
                       routes: {
                         'Setting': (context) => Setting(),
-<<<<<<< HEAD
                         'MedicalInfo': (context) => MedicalInfo(),
                         'Home': (context) => Home(),
-                        'ClinicProfile': (context) => ClinicProfile(),
-=======
->>>>>>> f3b1a76f03136a2a14aeaa4bedc4b3da53970d46
+                        // 'ClinicProfile': (context) => ClinicProfile(),
                       });
                 },
               );

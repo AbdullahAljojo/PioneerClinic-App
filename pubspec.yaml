@@ -52,13 +52,9 @@ dependencies:
   smooth_page_indicator: ^1.0.1
   charts_flutter: ^0.12.0
   flutter_staggered_animations: ^1.1.1
-<<<<<<< HEAD
-  flutter_carousel_slider: ^1.1.0
   http: ^0.13.6
-  url_launcher: 
   dotted_border: ^2.0.0+3
-=======
->>>>>>> f3b1a76f03136a2a14aeaa4bedc4b3da53970d46
+  url_launcher: ^6.1.11
   
 
 dev_dependencies:
