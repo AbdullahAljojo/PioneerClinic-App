@@ -66,10 +66,33 @@ class HomeView extends StatelessWidget {
                         ),
                         Padding(
                           padding: EdgeInsets.only(bottom: 10.sp, left: 37.w),
-                          child: CircleAvatar(
-                            backgroundImage: NetworkImage(
-                                'https://image.shutterstock.com/image-photo/closeup-photo-amazing-short-hairdo-260nw-1617540484.jpg'),
-                            radius: 30,
+                          child: InkWell(
+                            onTap: () {
+                              showDialog(
+                                  context: context,
+                                  builder: (context) {
+                                    Future.delayed(const Duration(seconds: 4),
+                                        () => Navigator.of(context).pop());
+                                    return Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: <Widget>[
+                                        Lottie.asset(
+                                            'assets/images/loading.json',
+                                            height: 80.sp,
+                                            fit: BoxFit.cover),
+                                      ],
+                                    );
+                                  }).whenComplete(() {
+                                Navigator.of(context).pushNamedAndRemoveUntil(
+                                    'ClinicProfile', (route) => false);
+                              });
+                            },
+                            child: CircleAvatar(
+                              backgroundImage: NetworkImage(
+                                  'https://image.shutterstock.com/image-photo/closeup-photo-amazing-short-hairdo-260nw-1617540484.jpg'),
+                              radius: 30,
+                            ),
                           ),
                         ),
                       ],
@@ -309,7 +332,7 @@ class HomeView extends StatelessWidget {
                     left: 1.w,
                     right: 1.w,
                   ),
-                  height: 29.h,
+                  height: 20.h,
                   child: GridView.count(
                     //physics: NeverScrollableScrollPhysics(),
                     crossAxisCount: 2,
@@ -341,7 +364,7 @@ class HomeView extends StatelessWidget {
                                 child: Stack(
                                   children: [
                                     Container(
-                                      height: 12.h,
+                                      height: 15.h,
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.vertical(
                                           top: Radius.circular(

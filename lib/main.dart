@@ -14,8 +14,14 @@ import 'modul.dart/profile.dart/p.dart';
 import 'modul.dart/setting/setting.dart';
 import 'modul.dart/setting/settingCubit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+<<<<<<< HEAD
+import 'pages/Home/homeView.dart';
+import 'pages/MedicalInformatic/View.dart';
+=======
 
+>>>>>>> f3b1a76f03136a2a14aeaa4bedc4b3da53970d46
 import 'pages/login/View.dart';
+import 'pages/profile/ClinicProfile.dart';
 
 SharedPreferences? sharedPref;
 
@@ -61,6 +67,12 @@ class MyApp extends StatelessWidget {
                       home: const Profile(),
                       routes: {
                         'Setting': (context) => Setting(),
+<<<<<<< HEAD
+                        'MedicalInfo': (context) => MedicalInfo(),
+                        'Home': (context) => Home(),
+                        'ClinicProfile': (context) => ClinicProfile(),
+=======
+>>>>>>> f3b1a76f03136a2a14aeaa4bedc4b3da53970d46
                       });
                 },
               );
