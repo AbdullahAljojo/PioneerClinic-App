@@ -30,9 +30,9 @@ class _SettingState extends State<Setting> {
       appBar: AppBar(
           title: Row(
         children: [
-          Icon(Icons.settings_rounded),
+          Icon(Icons.arrow_back),
           Text(
-            '  Settings',
+            '  Setting',
             //style:TextStyle(color:Color(0xFF11CCC3) )
             style: TextStyle(
                 fontSize: 30, fontWeight: FontWeight.bold, fontFamily: 'font'),
@@ -70,7 +70,6 @@ class _SettingState extends State<Setting> {
                                       Row(
                                         children: [
                                           Radio(
-                                            activeColor: Color(0xff11CCC3),
                                             value: 0,
                                             groupValue: _radioValue,
                                             onChanged: (value) => setState(() {
@@ -95,7 +94,6 @@ class _SettingState extends State<Setting> {
                                       Row(
                                         children: [
                                           Radio(
-                                            activeColor: Color(0xff11CCC3),
                                             value: 1,
                                             groupValue: _radioValue,
                                             onChanged: (value) => setState(() {
@@ -128,12 +126,7 @@ class _SettingState extends State<Setting> {
                                       onPressed: () {
                                         Navigator.of(context).pop();
                                       },
-                                      child: const Text(
-                                        'Close',
-                                        style: TextStyle(
-                                          color: Color(0xff11CCC3),
-                                        ),
-                                      ),
+                                      child: const Text('Close'),
                                     )
                                   ],
                                 );
@@ -153,7 +146,7 @@ class _SettingState extends State<Setting> {
                                 children: <Widget>[
                                   Icon(
                                     Icons.brightness_4_outlined,
-                                    color: Color(0xff11CCC3),
+                                    color: Color(0xffFFBA5A),
                                   ),
                                   SizedBox(
                                     height: 12.0.sp,
@@ -184,11 +177,10 @@ class _SettingState extends State<Setting> {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 24.5, left: 225.0),
-                      child: InkWell(
-                        onTap: () {
-                          ///////////////////
-                        },
-                        child: SizedBox(
+                      child: InkWell(onTap: () {
+                        ///////////////////},
+                        child:
+                        SizedBox(
                           width: 120.0.sp,
                           height: 120.0.sp,
                           child: Card(
@@ -202,7 +194,7 @@ class _SettingState extends State<Setting> {
                                 children: <Widget>[
                                   Icon(
                                     Icons.language,
-                                    color: Color(0xff11CCC3),
+                                    color: Color(0xffFFBA5A),
                                   ),
                                   SizedBox(
                                     height: 15.0.sp,
@@ -228,8 +220,8 @@ class _SettingState extends State<Setting> {
                               ),
                             )),
                           ),
-                        ),
-                      ),
+                        );
+                      }),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 200.5, left: 40.0),
@@ -250,8 +242,8 @@ class _SettingState extends State<Setting> {
                               child: Column(
                                 children: <Widget>[
                                   Icon(
-                                    Icons.settings_power_outlined,
-                                    color: Color(0xff11CCC3),
+                                    Icons.login_outlined,
+                                    color: Color(0xffFFBA5A),
                                   ),
                                   SizedBox(
                                     height: 15.0.sp,
@@ -282,9 +274,87 @@ class _SettingState extends State<Setting> {
                     ),
                   ],
                 ),
-              )))
+              )
+                  // Padding(
+                  //   padding: const EdgeInsets.all(20.0),
+                  //   child: SingleChildScrollView(
+                  //     child: Column(
+                  //       mainAxisAlignment: MainAxisAlignment.center,
+                  //       children: [
+                  //         item(
+                  //             text: 'change mode',
+                  //             icon: IconButton(
+                  //                 icon: const Icon(
+                  //                   Icons.brightness_4_outlined,
+                  //                   size: 30,
+                  //                 ),
+                  //                 onPressed: () {
+                  //                   SettingCubit.get(context).changeMode();
+                  //                 })),
+                  //         const SizedBox(
+                  //           height: 30,
+                  //         ),
+                  //         item(
+                  //             text: 'change language',
+                  //             icon: IconButton(
+                  //                 icon: const Icon(
+                  //                   Icons.language_rounded,
+                  //                   size: 30,
+                  //                 ),
+                  //                 onPressed: () {})),
+                  //         const SizedBox(
+                  //           height: 30,
+                  //         ),
+                  //         item(
+                  //             text: 'log out',
+                  //             icon: IconButton(
+                  //                 icon: const Icon(
+                  //                   Icons.logout_outlined,
+                  //                   size: 30,
+                  //                 ),
+                  //                 onPressed: () {})),
+                  //         const SizedBox(
+                  //           height: 30,
+                  //         ),
+                  //         item(
+                  //             text: 'anything else',
+                  //             icon: IconButton(
+                  //                 icon: const Icon(
+                  //                   Icons.logout_outlined,
+                  //                   size: 30,
+                  //                 ),
+                  //                 onPressed: () {}))
+                  //       ],
+                  //     ),
+                  //   ),
+                  // ),
+                  ))
         ],
       ),
     );
   }
 }
+
+Widget item({required String text, required IconButton icon}) => Container(
+    height: 100,
+    width: double.infinity,
+    decoration: BoxDecoration(
+      color: Colors.grey.withOpacity(0.175),
+      borderRadius: BorderRadius.circular(
+        30,
+      ),
+    ),
+    //  color: Colors.white70,
+    child: Row(
+      children: [
+        const SizedBox(
+          width: 30,
+        ),
+        Text(
+          '$text',
+          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        ),
+        const Spacer(),
+        icon
+      ],
+    ));

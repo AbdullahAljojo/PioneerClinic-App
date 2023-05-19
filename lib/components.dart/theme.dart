@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 ThemeData light = ThemeData(
-  primarySwatch: Colors.amber,
+  primarySwatch: Colors.teal,
   scaffoldBackgroundColor: Colors.white,
   // textTheme: TextTheme(bodyText1:  TextStyle(
   //   fontSize: 14,
@@ -28,7 +28,7 @@ ThemeData dark = ThemeData(
       unselectedItemColor: Colors.white,
       elevation: 50),
   scaffoldBackgroundColor: HexColor('333739') ,
-  primarySwatch: Colors.amber,
+  primarySwatch: Colors.teal,
   // textTheme: TextTheme(bodyText1: TextStyle(
   //   fontSize: 14,
   //   color: Colors.white,
