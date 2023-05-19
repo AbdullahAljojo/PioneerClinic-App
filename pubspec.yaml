@@ -46,6 +46,8 @@ dependencies:
   flutter_staggered_animations: ^1.1.1
   flutter_carousel_slider: ^1.1.0
   http: ^0.13.6
+  url_launcher: 
+  dotted_border: ^2.0.0+3
   
 
 dev_dependencies:

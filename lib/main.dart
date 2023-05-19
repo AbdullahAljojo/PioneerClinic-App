@@ -10,10 +10,10 @@ import 'components.dart/theme.dart';
 import 'modul.dart/setting/setting.dart';
 import 'modul.dart/setting/settingCubit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import 'pages/Home/homeView.dart';
 import 'pages/MedicalInformatic/View.dart';
 import 'pages/login/View.dart';
+import 'pages/profile/ClinicProfile.dart';
 
 SharedPreferences? sharedPref;
 Future<void> main() async {
@@ -53,6 +53,7 @@ class MyApp extends StatelessWidget {
                         'Setting': (context) => Setting(),
                         'MedicalInfo': (context) => MedicalInfo(),
                         'Home': (context) => Home(),
+                        'ClinicProfile': (context) => ClinicProfile(),
                       });
                 },
               );
