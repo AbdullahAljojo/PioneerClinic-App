@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../components.dart/cachHelper.dart';
@@ -36,7 +37,7 @@ class _OnBoardingState extends State<OnBoarding> {
     BoardingModel(
         image: 'assets/images/Public health-amico.png',
         title1: 'Now , if you are ready',
-        title2: 'Let\'s start'),
+        title2: 'Let\'s Get Start  ;)'),
   ];
 
   var boardingController = PageController();
@@ -61,7 +62,10 @@ class _OnBoardingState extends State<OnBoarding> {
                   },
                   child: const Text(
                     'skip',
-                    style: TextStyle(color: Color(0xFF11CCC3)),
+                    style: TextStyle(
+                        fontSize: 22,
+                        fontFamily: 'font',
+                        color: Color(0xFF11CCC3)),
                   )),
             )
           ],
@@ -121,7 +125,9 @@ class _OnBoardingState extends State<OnBoarding> {
                           duration: const Duration(milliseconds: 50),
                           curve: Curves.fastLinearToSlowEaseIn);
                     },
-                    child: const Icon(Icons.forward),
+                    child: const Icon(
+                      MdiIcons.arrowRight,
+                    ),
                   )
                 ],
               )
@@ -140,7 +146,8 @@ class _OnBoardingState extends State<OnBoarding> {
         ),
         Text(
           '${model.title1}',
-          style: const TextStyle(fontSize: 30, fontWeight: FontWeight.w700),
+          style: const TextStyle(
+              fontFamily: 'font', fontSize: 30, fontWeight: FontWeight.w700),
         ),
         const SizedBox(
           height: 10,
@@ -148,6 +155,7 @@ class _OnBoardingState extends State<OnBoarding> {
         Text(
           '${model.title2}',
           style: const TextStyle(
+            fontFamily: 'font',
             fontSize: 20,
           ),
         ),

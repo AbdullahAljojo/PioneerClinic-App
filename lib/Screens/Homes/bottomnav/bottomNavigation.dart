@@ -1,7 +1,8 @@
+import 'package:clinicmanagement/Screens/MedicalInformatic/View.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
-
+import 'package:sizer/sizer.dart';
 import '../home.dart';
 import '../../Setting/setting.dart';
 import '../../infoDoctor/p.dart';
@@ -18,19 +19,35 @@ class _NavBarScreenState extends State<NavBarScreen> {
 
   List<Widget> screens = [
     const HOME(),
-    const Setting(),
+    MedicalInfo(),
     const Profile(),
+    const Setting(),
   ];
 
-  List<AppBar> get appBars => [homeAppBar, settingsAppBar, profileAppBar];
+  List<AppBar> get appBars =>
+      [homeAppBar, InfoAppBar, profileAppBar, settingsAppBar];
 
+  AppBar get InfoAppBar => AppBar(
+        centerTitle: true,
+        title: Text(
+          'Medical Informatic',
+          style: TextStyle(
+              fontFamily: 'font',
+              fontWeight: FontWeight.w500,
+              color: Colors.black,
+              letterSpacing: 0.6.sp),
+        ),
+      );
   AppBar get profileAppBar => AppBar(
         backgroundColor: Colors.white,
         elevation: 0.0,
         title: const Text(
           'Profile',
           style: TextStyle(
-              color: Colors.teal, fontSize: 30, fontWeight: FontWeight.bold),
+              color: Colors.teal,
+              fontSize: 30,
+              fontWeight: FontWeight.bold,
+              fontFamily: 'font'),
         ),
       );
 
@@ -38,9 +55,12 @@ class _NavBarScreenState extends State<NavBarScreen> {
         backgroundColor: Colors.white,
         elevation: 0.0,
         title: const Text(
-          'Clinics',
+          'find a way easily',
           style: TextStyle(
-              color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold),
+              color: Colors.black,
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              fontFamily: 'font'),
         ),
       );
 
@@ -85,8 +105,8 @@ class _NavBarScreenState extends State<NavBarScreen> {
                       padding: const EdgeInsets.symmetric(
                           horizontal: 12, vertical: 8),
                       duration: const Duration(milliseconds: 100),
-                      tabBackgroundColor: Colors.teal,
-                       mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      tabBackgroundColor: Color(0xFF11CCC3),
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       //Colors.grey[100]!,
                       color: Colors.black,
                       tabs: const [
@@ -95,12 +115,16 @@ class _NavBarScreenState extends State<NavBarScreen> {
                           text: 'Home',
                         ),
                         GButton(
-                          icon: Icons.settings,
-                          text: 'Setting',
+                          icon: LineIcons.medicalClinic,
+                          text: 'Infoma',
                         ),
                         GButton(
                           icon: LineIcons.user,
                           text: 'Profile',
+                        ),
+                        GButton(
+                          icon: Icons.settings,
+                          text: 'Setting',
                         ),
                       ],
                       onTabChange: (index) {

@@ -15,17 +15,6 @@ class _MedicalInfoState extends State<MedicalInfo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: Text(
-            'Medical Informatic',
-            style: TextStyle(
-                fontFamily: 'font',
-                fontWeight: FontWeight.w500,
-                color: Colors.black,
-                letterSpacing: 0.6.sp),
-          ),
-        ),
         body: StreamBuilder<List<informatic>>(
             stream: informBloc.informaticListStream,
             builder: (BuildContext context,
