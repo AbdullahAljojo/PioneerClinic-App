@@ -2,6 +2,7 @@ import 'package:clinicmanagement/Screens/MedicalInformatic/View.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:sizer/sizer.dart';
 import '../home.dart';
 import '../../Setting/setting.dart';
@@ -109,21 +110,21 @@ class _NavBarScreenState extends State<NavBarScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       //Colors.grey[100]!,
                       color: Colors.black,
-                      tabs: const [
+                      tabs: [
                         GButton(
-                          icon: LineIcons.home,
+                          icon: MdiIcons.homeVariant,
                           text: 'Home',
                         ),
                         GButton(
-                          icon: LineIcons.medicalClinic,
+                          icon: MdiIcons.medicalBag,
                           text: 'Infoma',
                         ),
                         GButton(
-                          icon: LineIcons.user,
+                          icon: MdiIcons.account,
                           text: 'Profile',
                         ),
                         GButton(
-                          icon: Icons.settings,
+                          icon: MdiIcons.cogs,
                           text: 'Setting',
                         ),
                       ],

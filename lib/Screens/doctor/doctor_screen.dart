@@ -30,11 +30,12 @@ class DoctorScreen extends StatelessWidget {
                     color: Colors.white,
                   ),
                 ),
-                backgroundColor: Colors.teal,
+                backgroundColor: Color(0xff11CCC3),
                 title: const Text(
                   'Doctor of Kind',
                   style: TextStyle(
                     fontSize: 20,
+                    fontFamily: 'font',
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),
@@ -103,7 +104,9 @@ Widget buildExpertList(DoctorModel doctorModel) => Padding(
                         Text(
                           "name : ${doctorModel.name}",
                           style: const TextStyle(
-                              color: Colors.black, fontSize: 15),
+                              fontFamily: 'font',
+                              color: Colors.black,
+                              fontSize: 17),
                         ),
                         const SizedBox(
                           height: 8,
@@ -111,7 +114,9 @@ Widget buildExpertList(DoctorModel doctorModel) => Padding(
                         Text(
                           "expert : ${doctorModel.expert}",
                           style: const TextStyle(
-                              color: Colors.black, fontSize: 15),
+                              fontFamily: 'font',
+                              color: Colors.black,
+                              fontSize: 17),
                         ),
                         const SizedBox(
                           height: 8,
@@ -119,7 +124,9 @@ Widget buildExpertList(DoctorModel doctorModel) => Padding(
                         Text(
                           "phoneNumber :  ${doctorModel.phone}",
                           style: const TextStyle(
-                              color: Colors.black, fontSize: 15),
+                              fontFamily: 'font',
+                              color: Colors.black,
+                              fontSize: 17),
                         ),
                         const SizedBox(
                           height: 8,
@@ -130,7 +137,8 @@ Widget buildExpertList(DoctorModel doctorModel) => Padding(
                             Text(
                               "Rating: ${doctorModel.rate}",
                               style: const TextStyle(
-                                fontSize: 15,
+                                fontFamily: 'font',
+                                fontSize: 17,
                               ),
                             ),
                             // Icon(

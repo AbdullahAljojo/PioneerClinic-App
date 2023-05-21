@@ -2,6 +2,7 @@ import 'package:clinicmanagement/Screens/Homes/search.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_carousel_slider/carousel_slider.dart';
 import 'package:lottie/lottie.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:sizer/sizer.dart';
 
 import 'dummy_data/clinics_dummy_data.dart';
@@ -72,11 +73,11 @@ class _HOMEState extends State<HOME> {
                           fontWeight: FontWeight.bold),
                     ),
                     SizedBox(
-                      width: 85,
+                      width: 75,
                     ),
                     Icon(
-                      Icons.search,
-                      size: 20,
+                      MdiIcons.textSearchVariant,
+                      size: 25,
                       color: Colors.white,
                     ),
                   ],
@@ -142,7 +143,8 @@ class _HOMEState extends State<HOME> {
             ),
             Text(
               clinic.name,
-              style: const TextStyle(color: Colors.black, fontSize: 20),
+              style: const TextStyle(
+                  fontFamily: 'font', color: Colors.black, fontSize: 24),
             )
           ],
         ),

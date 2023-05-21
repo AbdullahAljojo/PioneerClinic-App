@@ -9,7 +9,14 @@ class ChildrenScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0.0,
-        title: Text('ChildrenScreen',style: TextStyle(color: Colors.teal,fontSize: 30,fontWeight: FontWeight.bold),),
+        title: Text(
+          'ChildrenScreen',
+          style: TextStyle(
+              fontFamily: 'font',
+              color: Colors.teal,
+              fontSize: 30,
+              fontWeight: FontWeight.bold),
+        ),
       ),
     );
   }
