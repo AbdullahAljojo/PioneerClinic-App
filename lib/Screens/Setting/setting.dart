@@ -1,10 +1,6 @@
-import 'package:clinicmanagement/components.dart/background.dart';
 import 'package:clinicmanagement/Screens/Setting/settingCubit.dart';
-import 'package:clinicmanagement/Screens/Setting/settingStates.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';

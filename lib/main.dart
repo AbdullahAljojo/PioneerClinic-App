@@ -9,6 +9,7 @@ import 'Components.dart/Widgets.dart/Navigation_Bar.dart';
 import 'Components.dart/blocObserver.dart';
 import 'Components.dart/cachHelper.dart';
 import 'Components.dart/theme.dart';
+import 'Screens/Homes/bottomnav/bottomNavigation.dart';
 import 'Screens/Homes/home.dart';
 import 'Screens/Homes/search.dart';
 import 'Screens/Login/View.dart';
@@ -60,15 +61,12 @@ class MyApp extends StatelessWidget {
                               ? ThemeMode.dark
                               : ThemeMode.light,
                           debugShowCheckedModeBanner: false,
-                          home: HOME(),
+                          home: const Profile(),
                           routes: {
-                            'Login': (context) => LoginPage(),
                             'Setting': (context) => Setting(),
                             'MedicalInfo': (context) => MedicalInfo(),
-                            'Home': (context) => HOME(),
-                            'ClinicProfile': (context) => ClinicProfile(),
-                            'register': (context) => Register(),
-                            'Search': (context) => Search(),
+                            'Home': (context) => Home(),
+                            // 'ClinicProfile': (context) => ClinicProfile(),
                           });
                     },
                   );

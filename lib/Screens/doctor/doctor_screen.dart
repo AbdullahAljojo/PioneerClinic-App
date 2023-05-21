@@ -3,7 +3,7 @@ import 'package:conditional_builder_null_safety/conditional_builder_null_safety.
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../Models/models/doctor.dart';
+import '../../models/doctor.dart';
 import '../Homes/search.dart';
 import 'cubit.dart';
 

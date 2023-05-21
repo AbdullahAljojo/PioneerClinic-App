@@ -1,5 +1,5 @@
-import '../../../Models/models/clinic.dart';
-import '../../../Models/models/doctor.dart';
+import '../../../models/clinic.dart';
+import '../../../models/doctor.dart';
 
 List<Clinic> clinics = [
   Clinic('assets/images/kind.png', 'Kind clinic',List.generate(10, (index) => DoctorModel(image: 'assets/images/kind.png', name: 'Raghad', expert: 'expert', phone: 'phone', rate: 5))),
