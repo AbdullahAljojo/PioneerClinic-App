@@ -3,7 +3,7 @@ import 'package:flutter/painting.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
-import 'InputFeild.dart';
+import 'InputField.dart';
 
 class InputWarapper extends StatelessWidget {
   const InputWarapper({Key? key}) : super(key: key);
@@ -18,9 +18,9 @@ class InputWarapper extends StatelessWidget {
             decoration: BoxDecoration(
                 color: const Color(0xff11CCC3),
                 borderRadius: BorderRadius.circular(10)),
-            child: const InputField(),
+            child: InputField(),
           ),
-          const SizedBox(height: 30),
+          const SizedBox(height: 20),
           Text(
             "Forgot Password?",
             style: TextStyle(
@@ -36,21 +36,23 @@ class InputWarapper extends StatelessWidget {
             children: [
               Text(
                 "Don't have an account? ",
-                style: TextStyle(
-                    fontFamily: 'font',
-                    fontStyle: FontStyle.italic,
-                    color: Colors.white),
+                style:
+                    TextStyle(fontStyle: FontStyle.italic, color: Colors.white),
               ),
               InkWell(
                 child: Text(
                   "Register",
                   style: TextStyle(
+                    fontFamily: 'font',
                     fontSize: 16.sp,
                     fontWeight: FontWeight.bold,
                     color: Color(0xffFFBA5A),
                   ),
                 ),
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context)
+                      .pushNamedAndRemoveUntil('register', (route) => false);
+                },
               )
             ],
           )

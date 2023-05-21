@@ -31,7 +31,8 @@ class _OnBoardingState extends State<OnBoarding> {
     BoardingModel(
         image: 'assets/images/Rhinoplasty-bro.png',
         title1: 'clinicPioneers',
-        title2: 'A center that provides you with care in all specialties, saves your time, and facilitates communication with the most skilled doctors'),
+        title2:
+            'A center that provides you with care in all specialties, saves your time, and facilitates communication with the most skilled doctors'),
     BoardingModel(
         image: 'assets/images/Public health-amico.png',
         title1: 'Now , if you are ready',
@@ -55,11 +56,10 @@ class _OnBoardingState extends State<OnBoarding> {
                       (value) {
                         // if (value == true)
                         //  navigateAndFinish(context, ShopLogin());
-                        
                       },
                     );
                   },
-                  child:const Text(
+                  child: const Text(
                     'skip',
                     style: TextStyle(color: Color(0xFF11CCC3)),
                   )),
@@ -89,7 +89,7 @@ class _OnBoardingState extends State<OnBoarding> {
                   },
                 ),
               ),
-            const  SizedBox(
+              const SizedBox(
                 height: 80,
               ),
               Row(
@@ -97,8 +97,8 @@ class _OnBoardingState extends State<OnBoarding> {
                   SmoothPageIndicator(
                     controller: boardingController,
                     count: onboarding.length,
-                    effect:const ExpandingDotsEffect(
-                        activeDotColor:Color(0xFF11CCC3),
+                    effect: const ExpandingDotsEffect(
+                        activeDotColor: Color(0xFF11CCC3),
                         dotHeight: 10,
                         dotColor: Colors.grey,
                         spacing: 2,
@@ -106,24 +106,22 @@ class _OnBoardingState extends State<OnBoarding> {
                   ),
                   const Spacer(),
                   FloatingActionButton(
-                    
-                    backgroundColor:Color(0xFF11CCC3),
+                    backgroundColor: Color(0xFF11CCC3),
                     onPressed: () {
-                      
                       if (islast) {
                         CacheHelper.saveData(key: 'onBoarding', value: true)
                             .then((value) {
                           if (value == true) {
-                          //  navigateAndFinish(context, ShopLogin());
+                            //  navigateAndFinish(context, ShopLogin());
                           }
                         });
                       }
 
                       boardingController.nextPage(
-                          duration:const Duration(milliseconds: 50),
+                          duration: const Duration(milliseconds: 50),
                           curve: Curves.fastLinearToSlowEaseIn);
                     },
-                    child:const Icon(Icons.forward),
+                    child: const Icon(Icons.forward),
                   )
                 ],
               )
@@ -137,19 +135,21 @@ class _OnBoardingState extends State<OnBoarding> {
         Expanded(
           child: Image(image: AssetImage('${model.image}')),
         ),
-       const  SizedBox(
+        const SizedBox(
           height: 10,
         ),
         Text(
           '${model.title1}',
           style: const TextStyle(fontSize: 30, fontWeight: FontWeight.w700),
         ),
-       const SizedBox(
+        const SizedBox(
           height: 10,
         ),
         Text(
           '${model.title2}',
-          style: const TextStyle(fontSize: 20, ),
+          style: const TextStyle(
+            fontSize: 20,
+          ),
         ),
       ]);
 }

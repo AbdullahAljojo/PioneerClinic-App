@@ -9,6 +9,8 @@ import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../main.dart';
+
 class Setting extends StatefulWidget {
   const Setting({super.key});
 
@@ -26,7 +28,8 @@ class _SettingState extends State<Setting> {
 
   @override
   Widget build(BuildContext context) {
-    return  Stack(
+    return Scaffold(
+      body: Stack(
         children: [
           Container(
             alignment: Alignment.bottomCenter,
@@ -222,7 +225,33 @@ class _SettingState extends State<Setting> {
                       padding: const EdgeInsets.only(top: 200.5, left: 40.0),
                       child: InkWell(
                         onTap: () {
-                          ///////////////////
+                          sharedPref?.setBool('isAuthorized', false);
+                          sharedPref?.setString('role', 'User');
+                          showDialog(
+                              context: context,
+                              builder: (context) {
+                                Future.delayed(const Duration(seconds: 2),
+                                    () => Navigator.of(context).pop());
+                                return Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: <Widget>[
+                                    Lottie.asset('assets/images/loading.json',
+                                        height: 20.h),
+                                    Text(
+                                      "Signing out..",
+                                      style: TextStyle(
+                                          fontSize: 21.sp,
+                                          decoration: TextDecoration.none,
+                                          fontFamily: 'font',
+                                          letterSpacing: 1,
+                                          color: Colors.white),
+                                    ),
+                                  ],
+                                );
+                              }).whenComplete(() {
+                            Navigator.of(context).pushNamedAndRemoveUntil(
+                                'Login', (route) => false);
+                          });
                         },
                         child: SizedBox(
                           width: 120.0.sp,
@@ -271,7 +300,7 @@ class _SettingState extends State<Setting> {
                 ),
               )))
         ],
-
+      ),
     );
   }
 }

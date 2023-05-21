@@ -8,8 +8,8 @@ import '../Homes/search.dart';
 import 'cubit.dart';
 
 class DoctorScreen extends StatelessWidget {
-  final List<DoctorModel>doctors;
-  const DoctorScreen({Key? key,required this.doctors}) : super(key: key);
+  final List<DoctorModel> doctors;
+  const DoctorScreen({Key? key, required this.doctors}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +55,8 @@ class DoctorScreen extends StatelessWidget {
                 condition: state is! LoadingCategoriesState,
                 builder: (context) => ListView.separated(
                   physics: const BouncingScrollPhysics(),
-                  itemBuilder: (context, index) => buildExpertList(doctors[index]),
+                  itemBuilder: (context, index) =>
+                      buildExpertList(doctors[index]),
                   separatorBuilder: (context, index) => myDivider(),
                   itemCount: 10,
                 ),
@@ -89,7 +90,7 @@ Widget buildExpertList(DoctorModel doctorModel) => Padding(
             children: [
               Row(
                 children: [
-                   Image(
+                  Image(
                     image: AssetImage(doctorModel.image),
                     width: 160,
                     height: 140,
@@ -99,32 +100,35 @@ Widget buildExpertList(DoctorModel doctorModel) => Padding(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                         Text(
+                        Text(
                           "name : ${doctorModel.name}",
-                          style: const TextStyle(color: Colors.black, fontSize: 15),
+                          style: const TextStyle(
+                              color: Colors.black, fontSize: 15),
                         ),
                         const SizedBox(
                           height: 8,
                         ),
-                         Text(
+                        Text(
                           "expert : ${doctorModel.expert}",
-                          style: const TextStyle(color: Colors.black, fontSize: 15),
+                          style: const TextStyle(
+                              color: Colors.black, fontSize: 15),
                         ),
                         const SizedBox(
                           height: 8,
                         ),
-                         Text(
+                        Text(
                           "phoneNumber :  ${doctorModel.phone}",
-                          style: const TextStyle(color: Colors.black, fontSize: 15),
+                          style: const TextStyle(
+                              color: Colors.black, fontSize: 15),
                         ),
                         const SizedBox(
                           height: 8,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
-                          children:  [
+                          children: [
                             Text(
-                             "Rating: ${doctorModel.rate}",
+                              "Rating: ${doctorModel.rate}",
                               style: const TextStyle(
                                 fontSize: 15,
                               ),

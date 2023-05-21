@@ -7,18 +7,18 @@ class MyButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 50.sp,
-      margin: const EdgeInsets.symmetric(horizontal: 90),
+      height: 40.sp,
+      margin: const EdgeInsets.symmetric(horizontal: 100),
       decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(20),
+        color: Color(0xffFFBA5A),
+        borderRadius: BorderRadius.circular(10),
       ),
       child: Center(
         child: Text(
           "Login",
           style: TextStyle(
             fontFamily: 'font',
-            color: Color(0xff11CCC3),
+            color: Colors.white,
             fontSize: 16.sp,
             fontWeight: FontWeight.bold,
           ),

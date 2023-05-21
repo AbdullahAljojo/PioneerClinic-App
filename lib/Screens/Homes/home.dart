@@ -117,7 +117,11 @@ class _HOMEState extends State<HOME> {
       ),
       onTap: () {
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) =>  DoctorScreen(doctors:clinic.doctors ,)));
+            context,
+            MaterialPageRoute(
+                builder: (context) => DoctorScreen(
+                      doctors: clinic.doctors,
+                    )));
       },
     );
   }
