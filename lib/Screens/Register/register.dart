@@ -224,7 +224,7 @@ void register(BuildContext context) async {
         : '';
   });
   print('${state}');
-  print('${sharedPref?.getString('token_reg')}');
+ // print('${sharedPref?.getString('token_reg')}');
 }
 
 // void create_expert() async {
@@ -366,14 +366,14 @@ class _RegisterState extends State<Register> {
                     onStepContinue: () {
                       //,,, save User and Expert information ,,,//
 
-                      sharedPref?.setString('name', PatientName.text);
-                      sharedPref?.setString('email', emailcontroller.text);
-                      sharedPref?.setString('address', Address.text);
-                      sharedPref?.setString('Counseling', SelectedBlood);
-                      sharedPref?.setString('experience', note.text);
-                      sharedPref?.setString('phone', phone.text);
-                      sharedPref?.setString('cash', Cash.text);
-                      sharedPref?.setString('serialnumber', SerialNumber.text);
+                      // sharedPref?.setString('name', PatientName.text);
+                      // sharedPref?.setString('email', emailcontroller.text);
+                      // sharedPref?.setString('address', Address.text);
+                      // sharedPref?.setString('Counseling', SelectedBlood);
+                      // sharedPref?.setString('experience', note.text);
+                      // sharedPref?.setString('phone', phone.text);
+                      // sharedPref?.setString('cash', Cash.text);
+                      // sharedPref?.setString('serialnumber', SerialNumber.text);
 
                       setState(() {
                         CurrentIndex == 0
@@ -680,12 +680,12 @@ class _RegisterState extends State<Register> {
                                       if (xfile != null) {
                                         setState(() {
                                           _path = xfile.path;
-                                          sharedPref?.setString("path", _path!);
+                                         // sharedPref?.setString("path", _path!);
                                         });
                                       } else {
                                         setState(() {
                                           _path = null;
-                                          sharedPref?.setString("path", _path!);
+                                        //  sharedPref?.setString("path", _path!);
                                         });
                                       }
                                     },

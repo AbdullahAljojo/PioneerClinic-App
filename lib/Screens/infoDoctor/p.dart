@@ -19,6 +19,7 @@ class Profile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     var  h = MediaQuery.of(context).size.width;
     var formKey = GlobalKey<FormState>();
     var nameController = TextEditingController();
     var priceController = TextEditingController();
@@ -71,21 +72,24 @@ class Profile extends StatelessWidget {
                           buildItem(
                               title: 'name :',
                               controller: nameController,
-                              textInputType: TextInputType.name),
+                              textInputType: TextInputType.name,
+                              h:h),
                           const SizedBox(
                             height: 30,
                           ),
                           buildItem(
                               title: 'price :',
                               controller: priceController,
-                              textInputType: TextInputType.number),
+                              textInputType: TextInputType.number,
+                              h:h),
                           const SizedBox(
                             height: 30,
                           ),
                           buildItem(
                               title: 'phone :',
                               controller: phoneController,
-                              textInputType: TextInputType.number),
+                              textInputType: TextInputType.number,
+                              h:h),
                           const SizedBox(
                             height: 30,
                           ),
@@ -102,8 +106,9 @@ class Profile extends StatelessWidget {
                           Container(
                             height: 30,
                             child: ListView.separated(
-                              itemBuilder: (context, indax) =>
-                                  availableDays(onTap: ProfileCubit.get(context).toggle, text: 'moday'),
+                              itemBuilder: (context, indax) => availableDays(
+                                  onTap: ProfileCubit.get(context).toggle,
+                                  text: 'moday'),
                               separatorBuilder: (context, indax) =>
                                   const SizedBox(
                                 width: 20,
@@ -355,7 +360,9 @@ Widget availableDays({void Function()? onTap, required String text}) => InkWell(
 Widget buildItem(
         {required String title,
         required TextEditingController controller,
-        required TextInputType textInputType}) =>
+        required TextInputType textInputType,
+        required var h
+        }) =>
     Row(
       //  mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -371,7 +378,7 @@ Widget buildItem(
         ),
         Spacer(),
         Container(
-          width: 260,
+          width:h *0.6,
           child: TextFormField(
             controller: controller,
             keyboardType: textInputType,

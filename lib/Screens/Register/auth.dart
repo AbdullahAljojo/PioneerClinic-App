@@ -17,7 +17,7 @@ class AuthApis {
         });
     Map<String, dynamic> json = jsonDecode(response.body);
     if (response.statusCode == 200) {
-      await sharedPref?.setString('token', json['token']);
+     // await sharedPref?.setString('token', json['token']);
       return json['token'];
     }
   }
@@ -62,9 +62,9 @@ class AuthApis {
     required String name,
     required String account,
   }) async {
-    var token = sharedPref?.getString('role') == 'Expert'
-        ? sharedPref?.getString('token')
-        : null;
+   // var token = sharedPref?.getString('role') == 'Expert'
+     //   ? sharedPref?.getString('token')
+       // : null;
     var request = http.MultipartRequest('POST', Uri.parse(Api.create_expert));
     request.fields.addAll({
       'name': name,
@@ -72,7 +72,7 @@ class AuthApis {
     });
     request.headers.addAll({
       'Accept': 'application/json',
-      'Authorization': 'Bearer $token',
+     // 'Authorization': 'Bearer $token',
     });
 
     var response = await request.send();
@@ -87,14 +87,14 @@ class AuthApis {
   }
 
   static Future profile() async {
-    var token = sharedPref?.getString('token');
+   // var token = sharedPref?.getString('token');
     var response = await http.post(Uri.parse(Api.profile),
         body: jsonEncode({
           ////////////
         }),
         headers: {
           'Accept': 'application/json',
-          'Authorization': 'Bearer $token',
+         // 'Authorization': 'Bearer $token',
         });
 
     if (response.statusCode == 200) {

@@ -221,8 +221,8 @@ class _SettingState extends State<Setting> {
                       padding: const EdgeInsets.only(top: 200.5, left: 40.0),
                       child: InkWell(
                         onTap: () {
-                          sharedPref?.setBool('isAuthorized', false);
-                          sharedPref?.setString('role', 'User');
+                          // sharedPref?.setBool('isAuthorized', false);
+                          // sharedPref?.setString('role', 'User');
                           showDialog(
                               context: context,
                               builder: (context) {

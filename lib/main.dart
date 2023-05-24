@@ -8,7 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
 import 'Components.dart/Widgets.dart/Navigation_Bar.dart';
 import 'Components.dart/blocObserver.dart';
-import 'Components.dart/cachHelper.dart';
+
 import 'Components.dart/theme.dart';
 import 'Screens/Homes/home.dart';
 import 'Screens/Homes/search.dart';
@@ -17,16 +17,17 @@ import 'Screens/Register/register.dart';
 import 'Screens/infoDoctor/p.dart';
 import 'Screens/Setting/setting.dart';
 import 'Screens/Setting/settingCubit.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+//import 'package:shared_preferences/shared_preferences.dart';
 import 'Screens/Homes/homeTest.dart';
 import 'Screens/MedicalInformatic/View.dart';
 import 'Screens/onBoarding.dart';
+import 'components.dart/cachHelper.dart';
 
-SharedPreferences? sharedPref;
+//SharedPreferences? sharedPref;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  sharedPref = await SharedPreferences.getInstance();
+  //sharedPref = await SharedPreferences.getInstance();
   Bloc.observer = MyBlocObserver();
 
   await CacheHelper.init();
@@ -61,13 +62,13 @@ class MyApp extends StatelessWidget {
                               ? ThemeMode.dark
                               : ThemeMode.light,
                           debugShowCheckedModeBanner: false,
-                          home: NavBarScreen(),
+                          home: OnBoarding(),
                           routes: {
                             'Login': (context) => LoginPage(),
                             'Setting': (context) => Setting(),
                             'MedicalInfo': (context) => MedicalInfo(),
                             'Home': (context) => NavBarScreen(),
-                            'ClinicProfile': (context) => ClinicProfile(),
+                            //'ClinicProfile': (context) => ClinicProfile(),
                             'register': (context) => Register(),
                             'Search': (context) => Search(),
                           });
