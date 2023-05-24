@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../components.dart/cachHelper.dart';
@@ -126,7 +126,7 @@ class _OnBoardingState extends State<OnBoarding> {
                           curve: Curves.fastLinearToSlowEaseIn);
                     },
                     child: const Icon(
-                      MdiIcons.arrowRight,
+                      FontAwesomeIcons.arrowRight,
                     ),
                   )
                 ],

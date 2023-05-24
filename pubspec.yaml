@@ -56,7 +56,8 @@ dependencies:
   url_launcher: ^6.1.11
   dotted_border: ^2.0.0+3
   image_picker: ^0.8.7+5
-  material_design_icons_flutter:
+  intl: ^0.17.0
+  font_awesome_flutter: ^10.4.0
   
 
 dev_dependencies:

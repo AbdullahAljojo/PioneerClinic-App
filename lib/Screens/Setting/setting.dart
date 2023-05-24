@@ -2,6 +2,7 @@ import 'package:clinicmanagement/Screens/Setting/settingCubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
 
@@ -138,7 +139,7 @@ class _SettingState extends State<Setting> {
                               child: Column(
                                 children: <Widget>[
                                   Icon(
-                                    Icons.brightness_4_outlined,
+                                    FontAwesomeIcons.circleHalfStroke,
                                     color: Color(0xff11CCC3),
                                   ),
                                   SizedBox(
@@ -187,7 +188,7 @@ class _SettingState extends State<Setting> {
                               child: Column(
                                 children: <Widget>[
                                   Icon(
-                                    Icons.language,
+                                    FontAwesomeIcons.earthEurope,
                                     color: Color(0xff11CCC3),
                                   ),
                                   SizedBox(
@@ -222,7 +223,6 @@ class _SettingState extends State<Setting> {
                       child: InkWell(
                         onTap: () {
                           sharedPref?.setBool('isAuthorized', false);
-                          sharedPref?.setString('role', 'User');
                           showDialog(
                               context: context,
                               builder: (context) {
@@ -232,11 +232,11 @@ class _SettingState extends State<Setting> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: <Widget>[
                                     Lottie.asset('assets/images/loading.json',
-                                        height: 20.h),
+                                        height: 18.h),
                                     Text(
                                       "Signing out..",
                                       style: TextStyle(
-                                          fontSize: 21.sp,
+                                          fontSize: 18.sp,
                                           decoration: TextDecoration.none,
                                           fontFamily: 'font',
                                           letterSpacing: 1,
@@ -262,7 +262,7 @@ class _SettingState extends State<Setting> {
                               child: Column(
                                 children: <Widget>[
                                   Icon(
-                                    Icons.settings_power_outlined,
+                                    FontAwesomeIcons.powerOff,
                                     color: Color(0xff11CCC3),
                                   ),
                                   SizedBox(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
 import 'Button.dart';
@@ -114,7 +115,7 @@ class _InputFieldState extends State<InputField> {
                                 )
                               : IconButton(
                                   icon: const Icon(
-                                    Icons.close,
+                                    FontAwesomeIcons.xmark,
                                     color: Colors.white54,
                                   ),
                                   onPressed: () => emailcontroller.clear(),
@@ -138,10 +139,10 @@ class _InputFieldState extends State<InputField> {
                         suffixIcon: IconButton(
                             icon: _securpass
                                 ? const Icon(
-                                    Icons.visibility_off,
+                                    FontAwesomeIcons.eyeSlash,
                                     color: Colors.white54,
                                   )
-                                : const Icon(Icons.visibility,
+                                : const Icon(FontAwesomeIcons.eye,
                                     color: Color(0xffFFBA5A)),
                             onPressed: () => setState(() {
                                   _securpass = !_securpass;

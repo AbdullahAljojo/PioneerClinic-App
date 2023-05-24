@@ -61,8 +61,9 @@ class MyApp extends StatelessWidget {
                               ? ThemeMode.dark
                               : ThemeMode.light,
                           debugShowCheckedModeBanner: false,
-                          home: NavBarScreen(),
+                          home: LoginPage(),
                           routes: {
+                            'onBoarding': (context) => OnBoarding(),
                             'Login': (context) => LoginPage(),
                             'Setting': (context) => Setting(),
                             'MedicalInfo': (context) => MedicalInfo(),

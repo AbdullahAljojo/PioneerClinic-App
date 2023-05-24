@@ -2,14 +2,23 @@ import 'dart:async';
 import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:intl/intl.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
+import 'package:flutter/material.dart';
 import '../../main.dart';
 import '../LogIn/View.dart';
 import 'auth.dart';
+
+enum Gender {
+  male,
+  female,
+  Other,
+}
 
 Pattern pattern =
     r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+[a-zA-Z]+[a-zA-Z]+";
@@ -28,6 +37,8 @@ TextEditingController password = TextEditingController();
 TextEditingController confirmpass = TextEditingController();
 TextEditingController SerialNumber = TextEditingController();
 TextEditingController Cash = TextEditingController();
+
+final ageController = TextEditingController();
 
 String? validusername(String? val) {
   if (val != null) {
@@ -251,6 +262,68 @@ class Register extends StatefulWidget {
 
 class _RegisterState extends State<Register> {
   var SelectedBlood = "A+";
+  Gender? gender;
+  bool denied = false;
+  DateTime selectedDate = DateTime.now();
+  void _selectDate() {
+    showDatePicker(
+            context: context,
+            initialDate: selectedDate,
+            firstDate: DateTime(2000),
+            lastDate: DateTime(2100))
+        .then((pickedDate) {
+      if (pickedDate != null) {
+        setState(() {
+          selectedDate = pickedDate;
+        });
+        if (DateTime.now().year - selectedDate.year >= 18) {
+          // User is 18 or older
+          setState(() {
+            selectedDate = selectedDate;
+          });
+        } else {
+          return showDialog(
+              context: context,
+              builder: (context) {
+                return SimpleDialog(
+                  title: Row(
+                    children: [
+                      Icon(
+                        FontAwesomeIcons.circleExclamation,
+                        color: Color(0xffFFBA5A),
+                      ),
+                      Text('   Warning',
+                          style: TextStyle(
+                              fontFamily: 'font',
+                              color: Color(0xffFFBA5A),
+                              fontSize: 15.sp)),
+                    ],
+                  ),
+                  contentPadding:
+                      const EdgeInsets.symmetric(horizontal: 34, vertical: 22),
+                  children: [
+                    Text('User must be at least 18 years old.',
+                        style: TextStyle(
+                            color: Colors.black54,
+                            fontFamily: 'font',
+                            fontWeight: FontWeight.bold,
+                            fontSize: 13.sp)),
+                  ],
+                );
+              });
+        }
+      }
+    });
+  }
+
+  bool _validateAge() {
+    if (DateTime.now().year - selectedDate.year < 18) {
+      // Show error
+      return false;
+    }
+    return true;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -346,7 +419,61 @@ class _RegisterState extends State<Register> {
                                         if (!formsate1.currentState!.validate())
                                           {}
                                         else
-                                          CurrentIndex = index,
+                                          {
+                                            // Form is valid, validate age
+                                            if (!_validateAge())
+                                              {
+                                                // Age is invalid, show dialog
+                                                showDialog(
+                                                    context: context,
+                                                    builder: (context) {
+                                                      return SimpleDialog(
+                                                        title: Row(
+                                                          children: [
+                                                            Icon(
+                                                              FontAwesomeIcons
+                                                                  .circleExclamation,
+                                                              color: Color(
+                                                                  0xffFFBA5A),
+                                                            ),
+                                                            Text('   Warning',
+                                                                style: TextStyle(
+                                                                    fontFamily:
+                                                                        'font',
+                                                                    color: Color(
+                                                                        0xffFFBA5A),
+                                                                    fontSize:
+                                                                        15.sp)),
+                                                          ],
+                                                        ),
+                                                        contentPadding:
+                                                            const EdgeInsets
+                                                                    .symmetric(
+                                                                horizontal: 34,
+                                                                vertical: 22),
+                                                        children: [
+                                                          Text(
+                                                              'User must be at least 18 years old.',
+                                                              style: TextStyle(
+                                                                  color: Colors
+                                                                      .black54,
+                                                                  fontFamily:
+                                                                      'font',
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold,
+                                                                  fontSize:
+                                                                      13.sp)),
+                                                        ],
+                                                      );
+                                                    })
+                                              }
+                                            else
+                                              {
+                                                // Age is valid, advance stepper
+                                                CurrentIndex = index
+                                              }
+                                          }
                                       }
                                     : CurrentIndex <= 3
                                         ? {
@@ -395,8 +522,61 @@ class _RegisterState extends State<Register> {
                                         if (!formsate1.currentState!.validate())
                                           {}
                                         else
-                                          // register(),
-                                          CurrentIndex = CurrentIndex + 1
+                                          {
+                                            // Form is valid, validate age
+                                            if (!_validateAge())
+                                              {
+                                                // Age is invalid, show dialog
+                                                showDialog(
+                                                    context: context,
+                                                    builder: (context) {
+                                                      return SimpleDialog(
+                                                        title: Row(
+                                                          children: [
+                                                            Icon(
+                                                              FontAwesomeIcons
+                                                                  .circleExclamation,
+                                                              color: Color(
+                                                                  0xffFFBA5A),
+                                                            ),
+                                                            Text('   Warning',
+                                                                style: TextStyle(
+                                                                    fontFamily:
+                                                                        'font',
+                                                                    color: Color(
+                                                                        0xffFFBA5A),
+                                                                    fontSize:
+                                                                        15.sp)),
+                                                          ],
+                                                        ),
+                                                        contentPadding:
+                                                            const EdgeInsets
+                                                                    .symmetric(
+                                                                horizontal: 34,
+                                                                vertical: 22),
+                                                        children: [
+                                                          Text(
+                                                              'User must be at least 18 years old.',
+                                                              style: TextStyle(
+                                                                  color: Colors
+                                                                      .black54,
+                                                                  fontFamily:
+                                                                      'font',
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold,
+                                                                  fontSize:
+                                                                      13.sp)),
+                                                        ],
+                                                      );
+                                                    })
+                                              }
+                                            else
+                                              {
+                                                // Age is valid, advance stepper
+                                                CurrentIndex = CurrentIndex + 1
+                                              }
+                                          }
                                       }
                                     : CurrentIndex == 3
                                         ? {
@@ -562,7 +742,7 @@ class _RegisterState extends State<Register> {
                           false,
                           TextInputType.name,
                           const Icon(
-                            Icons.person,
+                            FontAwesomeIcons.user,
                             color: Color(0xffFFBA5A),
                           ),
                           validusername,
@@ -578,7 +758,7 @@ class _RegisterState extends State<Register> {
                           false,
                           TextInputType.emailAddress,
                           const Icon(
-                            Icons.email,
+                            FontAwesomeIcons.envelope,
                             color: Color(0xffFFBA5A),
                           ),
                           validemail,
@@ -594,7 +774,7 @@ class _RegisterState extends State<Register> {
                           true,
                           TextInputType.multiline,
                           const Icon(
-                            Icons.security,
+                            FontAwesomeIcons.shieldHalved,
                             color: Color(0xffFFBA5A),
                           ),
                           validpassword,
@@ -608,7 +788,7 @@ class _RegisterState extends State<Register> {
                         true,
                         TextInputType.multiline,
                         const Icon(
-                          Icons.security,
+                          FontAwesomeIcons.shieldHalved,
                           color: Color(0xffFFBA5A),
                         ),
                         validconfirmpassword,
@@ -691,8 +871,9 @@ class _RegisterState extends State<Register> {
                                     },
                                     icon: _path == null
                                         ? Icon(
-                                            Icons.edit,
-                                            size: 15.sp,
+                                            FontAwesomeIcons.pen,
+                                            size: 13.sp,
+                                            color: Colors.white,
                                           )
                                         : Icon(
                                             Icons.delete,
@@ -715,7 +896,7 @@ class _RegisterState extends State<Register> {
                         false,
                         TextInputType.phone,
                         const Icon(
-                          Icons.phone_android,
+                          FontAwesomeIcons.phone,
                           color: Color(0xffFFBA5A),
                         ),
                         validphone,
@@ -737,7 +918,7 @@ class _RegisterState extends State<Register> {
                         false,
                         TextInputType.name,
                         const Icon(
-                          Icons.home_outlined,
+                          FontAwesomeIcons.locationDot,
                           color: Color(0xffFFBA5A),
                         ),
                         validAddress,
@@ -778,96 +959,188 @@ class _RegisterState extends State<Register> {
                   child: Column(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(top: 3),
+                        padding: EdgeInsets.only(right: 60.0.w, bottom: 2.h),
+                        child: Text(
+                          'DOB',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: 'font',
+                              fontWeight: FontWeight.w500,
+                              fontSize: 16.sp),
+                        ),
+                      ),
+                      InkWell(
                         child: Container(
-                          padding: EdgeInsets.only(left: 20.sp),
-                          width: 90.w,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(12),
-                              color: Colors.white),
-                          child: DropdownButton<String>(
-                            dropdownColor: Colors.white,
-                            underline: SizedBox(),
-                            value: SelectedBlood,
-                            style: TextStyle(
-                                color: Colors.black54,
-                                fontFamily: 'font',
-                                fontSize: 14.sp),
-                            onChanged: (e) {
-                              setState(() {
-                                SelectedBlood = (e as String?)!;
-                                e == "Select Blood Group";
-                              });
-                            },
-                            items: [
-                              "A+",
-                              "B+",
-                              "AB+",
-                              "O+",
-                              "A-",
-                              "B-",
-                              "AB-",
-                              "O-"
-                            ]
-                                .map((e) => DropdownMenuItem<String>(
-                                      child: Row(
-                                        children: [
-                                          Icon(
-                                            Icons.bloodtype,
-                                            color: Color(0xffFFBA5A),
-                                          ),
-                                          Text(e),
-                                        ],
-                                      ),
-                                      value: e,
-                                    ))
-                                .toList(),
-                            borderRadius: BorderRadius.circular(18),
-                          ),
+                            width: 80.w,
+                            height: 29.sp,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(12))),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Text(
+                                  '${DateFormat('dd-MM-yyyy').format(selectedDate)}',
+                                  style: TextStyle(
+                                    fontSize: 13.8.sp,
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 9.w,
+                                ),
+                                Icon(
+                                  FontAwesomeIcons.calendar,
+                                  color: Colors.black54,
+                                ),
+                              ],
+                            )),
+                        onTap: _selectDate,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(
+                            top: 4.h, right: 30.0.w, bottom: 2.h),
+                        child: Text(
+                          'Select Blood Group',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: 'font',
+                              fontWeight: FontWeight.w500,
+                              fontSize: 16.sp),
                         ),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(top: 3),
-                        child: TextFormField(
-                          maxLines: 6,
-                          controller: note,
-                          style: TextStyle(color: Colors.black),
-                          decoration: InputDecoration(
-                              counterText: "100/",
-                              counterStyle: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w300),
-                              hintText: ' Any note?'.tr,
-                              labelText: 'Enter your information here..'.tr,
-                              labelStyle: TextStyle(
-                                  fontFamily: 'font',
-                                  color: Colors.black54,
-                                  letterSpacing: 1,
-                                  fontStyle: FontStyle.italic,
-                                  fontWeight: FontWeight.w400),
-                              helperMaxLines: 2,
-                              hintStyle:
-                                  const TextStyle(color: Color(0xff6d6c71)),
-                              filled: true,
-                              fillColor: Colors.white,
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(22),
-                                borderSide:
-                                    const BorderSide(color: Color(0xff6d6c71)),
+                        child: Container(
+                          padding: EdgeInsets.only(left: 10.sp),
+                          width: 90.w,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(12),
+                              color: Colors.white),
+                          child: Row(
+                            children: [
+                              Icon(
+                                FontAwesomeIcons.suitcaseMedical,
+                                color: Color(0xffFFBA5A),
                               ),
-                              suffixIcon: note.text.isEmpty
-                                  ? Container(
-                                      width: 0,
-                                    )
-                                  : IconButton(
-                                      icon: const Icon(
-                                        Icons.close,
-                                        color: Colors.black,
-                                      ),
-                                      onPressed: () => note.clear(),
-                                    )),
-                          maxLength: null,
+                              SizedBox(
+                                width: 3.w,
+                              ),
+                              DropdownButton<String>(
+                                iconSize: 33,
+                                dropdownColor: Colors.white,
+                                underline: SizedBox(),
+                                value: SelectedBlood,
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w400,
+                                    color: Colors.black54,
+                                    fontSize: 14.sp),
+                                onChanged: (e) {
+                                  setState(() {
+                                    SelectedBlood = (e as String?)!;
+                                    e == "Select Blood Group";
+                                  });
+                                },
+                                items: [
+                                  "A+",
+                                  "B+",
+                                  "AB+",
+                                  "O+",
+                                  "A-",
+                                  "B-",
+                                  "AB-",
+                                  "O-"
+                                ]
+                                    .map((e) => DropdownMenuItem<String>(
+                                          child: Text(e),
+                                          value: e,
+                                        ))
+                                    .toList(),
+                                borderRadius: BorderRadius.circular(18),
+                              ),
+                            ],
+                          ),
                         ),
+                      ),
+                      Padding(
+                        padding:
+                            EdgeInsets.only(top: 4.h, bottom: 2.h, right: 57.w),
+                        child: Text(
+                          'Gender*',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: 'font',
+                              fontWeight: FontWeight.w500,
+                              fontSize: 16.sp),
+                        ),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(15))),
+                            child: Row(children: [
+                              Radio<Gender>(
+                                value: Gender.male,
+                                groupValue: gender,
+                                activeColor: Colors.black38,
+                                onChanged: (Gender? value) {
+                                  setState(() {
+                                    gender = value!;
+                                  });
+                                },
+                              ),
+                              Text(
+                                "Male   ",
+                                style: gender == Gender.male
+                                    ? TextStyle(
+                                        fontFamily: 'font',
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 13.sp)
+                                    : TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 11.sp),
+                              )
+                            ]),
+                          ),
+                          SizedBox(
+                            width: 5.w,
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(15))),
+                            child: Row(
+                              children: [
+                                Radio<Gender>(
+                                  value: Gender.female,
+                                  activeColor: Colors.black38,
+                                  groupValue: gender,
+                                  onChanged: (Gender? value) {
+                                    setState(() {
+                                      gender = value!;
+                                    });
+                                  },
+                                ),
+                                Text(
+                                  "Female   ",
+                                  style: gender == Gender.female
+                                      ? TextStyle(
+                                          fontFamily: 'font',
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 13.sp)
+                                      : TextStyle(
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 11.sp),
+                                )
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
@@ -1012,8 +1285,9 @@ Padding buildTextFormFieldAll(
                 )
               : IconButton(
                   icon: const Icon(
-                    Icons.close,
-                    color: Colors.black,
+                    FontAwesomeIcons.squareXmark,
+                    color: Colors.black54,
+                    size: 22,
                   ),
                   onPressed: () => controllers.clear(),
                 )),
