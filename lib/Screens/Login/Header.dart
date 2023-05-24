@@ -1,7 +1,9 @@
+import 'package:clinicmanagement/Screens/Homes/home.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
 import '../../main.dart';
+import 'View.dart';
 
 class AppHeader extends StatefulWidget {
   AppHeader({Key? mykey}) : super(key: mykey);
@@ -29,32 +31,33 @@ class _AppHeaderState extends State<AppHeader> {
                       fontWeight: FontWeight.bold,
                       color: Color(0xff002C42)),
                 ),
-                Center(
+                Padding(
+                    padding: EdgeInsets.only(left: 22.w),
                     child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text("You are Login as",
-                        style: TextStyle(
-                            fontFamily: 'font',
-                            color: Color(0xff002C42),
-                            fontSize: 15.sp,
-                            fontWeight: FontWeight.w400)),
-                    Text(" a Doctor",
-                        style: TextStyle(
-                            fontFamily: 'font',
-                            color: Color(0xff002C42),
-                            fontSize: 15.sp,
-                            fontWeight: FontWeight.w400)),
-                  ],
-                )),
+                      children: [
+                        Text("You are Login as",
+                            style: TextStyle(
+                                fontFamily: 'font',
+                                color: Color(0xff002C42),
+                                fontSize: 15.sp,
+                                fontWeight: FontWeight.w400)),
+                      ],
+                    )),
               ],
             ),
             Container(
-              padding: EdgeInsets.only(top: 40),
+              padding: const EdgeInsets.only(top: 40),
               alignment: Alignment.topCenter,
               height: 170.sp,
               child: Lottie.asset('assets/images/login.json',
                   fit: BoxFit.cover, width: 250.sp),
+            ),
+            Container(
+              padding: const EdgeInsets.only(top: 65),
+              alignment: Alignment.topCenter,
+              height: 220.sp,
+              child: Image.asset('assets/images/ClinicLogo2.png',
+                  fit: BoxFit.contain, width: 140.sp),
             ),
           ],
         ),

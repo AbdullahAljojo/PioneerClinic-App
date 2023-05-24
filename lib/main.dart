@@ -64,6 +64,7 @@ class MyApp extends StatelessWidget {
                           debugShowCheckedModeBanner: false,
                           home: OnBoarding(),
                           routes: {
+                            'onBoarding': (context) => OnBoarding(),
                             'Login': (context) => LoginPage(),
                             'Setting': (context) => Setting(),
                             'MedicalInfo': (context) => MedicalInfo(),

@@ -1,8 +1,9 @@
 import 'package:clinicmanagement/Screens/MedicalInformatic/View.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
 import '../home.dart';
 import '../../Setting/setting.dart';
@@ -63,15 +64,40 @@ class _NavBarScreenState extends State<NavBarScreen> {
               fontWeight: FontWeight.bold,
               fontFamily: 'font'),
         ),
+        actions: [
+          InkWell(
+              onTap: () {
+                showDialog(
+                    context: context,
+                    builder: (context) {
+                      Future.delayed(const Duration(seconds: 2),
+                          () => Navigator.of(context).pop());
+                      return Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Lottie.asset('assets/images/loading.json',
+                              height: 80.sp, fit: BoxFit.cover),
+                        ],
+                      );
+                    }).whenComplete(() {
+                  Navigator.of(context).pushNamedAndRemoveUntil(
+                      'ClinicProfile', (route) => false);
+                });
+              },
+              child: Image.asset('assets/images/ClinicLogo.png')),
+          SizedBox(
+            width: 8.sp,
+          )
+        ],
       );
 
   AppBar get settingsAppBar {
     return AppBar(
         title: Row(
       children: const [
-        Icon(Icons.settings_rounded),
+        Icon(FontAwesomeIcons.sliders),
         Text(
-          '  Settings',
+          '   Settings',
           //style:TextStyle(color:Color(0xFF11CCC3) )
           style: TextStyle(
               fontSize: 30, fontWeight: FontWeight.bold, fontFamily: 'font'),
@@ -112,19 +138,19 @@ class _NavBarScreenState extends State<NavBarScreen> {
                       color: Colors.black,
                       tabs: [
                         GButton(
-                          icon: MdiIcons.homeVariant,
+                          icon: FontAwesomeIcons.houseChimneyMedical,
                           text: 'Home',
                         ),
                         GButton(
-                          icon: MdiIcons.medicalBag,
+                          icon: FontAwesomeIcons.suitcaseMedical,
                           text: 'Infoma',
                         ),
                         GButton(
-                          icon: MdiIcons.account,
+                          icon: FontAwesomeIcons.userTie,
                           text: 'Profile',
                         ),
                         GButton(
-                          icon: MdiIcons.cogs,
+                          icon: FontAwesomeIcons.gear,
                           text: 'Setting',
                         ),
                       ],

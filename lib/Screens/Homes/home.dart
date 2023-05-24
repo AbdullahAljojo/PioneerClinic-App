@@ -1,8 +1,8 @@
 import 'package:clinicmanagement/Screens/Homes/search.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_carousel_slider/carousel_slider.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lottie/lottie.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:sizer/sizer.dart';
 
 import 'dummy_data/clinics_dummy_data.dart';
@@ -10,10 +10,10 @@ import '../doctor/doctor_screen.dart';
 import '../../models/clinic.dart';
 
 final List<Image> images = [
+  Image.asset('assets/images/3.jpg'),
   Image.asset('assets/images/2.jpg'),
   Image.asset('assets/images/1.jpg'),
   Image.asset('assets/images/4.jpg'),
-  Image.asset('assets/images/3.jpg'),
 ];
 
 bool _isPlaying = true;
@@ -76,8 +76,8 @@ class _HOMEState extends State<HOME> {
                       width: 75,
                     ),
                     Icon(
-                      MdiIcons.textSearchVariant,
-                      size: 25,
+                      FontAwesomeIcons.magnifyingGlass,
+                      size: 20,
                       color: Colors.white,
                     ),
                   ],

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../components.dart/cachHelper.dart';
@@ -30,12 +30,12 @@ class _OnBoardingState extends State<OnBoarding> {
         title1: 'Welcome to our app',
         title2: 'We are here to make your life easier'),
     BoardingModel(
-        image: 'assets/images/Rhinoplasty-bro.png',
-        title1: 'clinicPioneers',
+        image: 'assets/images/ClinicLogo.png',
+        title1: 'PioneerClinic',
         title2:
             'A center that provides you with care in all specialties, saves your time, and facilitates communication with the most skilled doctors'),
     BoardingModel(
-        image: 'assets/images/Public health-amico.png',
+        image: 'assets/images/Rhinoplasty-bro.png',
         title1: 'Now , if you are ready',
         title2: 'Let\'s Get Start  ;)'),
   ];
@@ -126,7 +126,7 @@ class _OnBoardingState extends State<OnBoarding> {
                           curve: Curves.fastLinearToSlowEaseIn);
                     },
                     child: const Icon(
-                      MdiIcons.arrowRight,
+                      FontAwesomeIcons.arrowRight,
                     ),
                   )
                 ],
