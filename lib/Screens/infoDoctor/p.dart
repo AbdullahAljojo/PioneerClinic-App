@@ -25,23 +25,26 @@ class Profile extends StatelessWidget {
     var priceController = TextEditingController();
     var phoneController = TextEditingController();
     return BlocConsumer<ProfileCubit, ProfileStates>(
+       listener: (context, state) {},
       builder: (context, state) => SafeArea(
-        child: Scaffold(
-            body: Stack(
-          children: <Widget>[
-            Positioned(
-              top: 0,
-              left: 0,
-              right: 0,
-              child: Image.asset('assets/images/pp.jpg',
-                  fit: BoxFit.cover, height: 325),
-            ),
-            Positioned(
-              bottom: 0,
-              left: 0,
-              right: 0,
-              child: Container(
-                height: 500,
+        child: GestureDetector(
+          onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
+          child: Scaffold(
+              body: Stack(
+            children: <Widget>[
+              Positioned(
+                top: 0,
+                left: 0,
+                right: 0,
+                child: Image.asset('assets/images/pp.jpg',
+                    fit: BoxFit.cover, height: 325),
+              ),
+              Positioned(
+                bottom: 0,
+                left: 0,
+                right: 0,
+                child: Container(
+                  height: 500,
 
                 // alignment: Alignment.bottomCenter,
                 decoration: BoxDecoration(
@@ -191,8 +194,8 @@ class Profile extends StatelessWidget {
           ],
         )),
       ),
-      listener: (context, state) {},
-    );
+      ));
+    
 
 //     SafeArea(
 //       child:

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:sizer/sizer.dart';
 import 'beauty/beauty.dart';
 import 'bony/bony.dart';
 import 'children/children.dart';
@@ -19,10 +20,10 @@ class Search extends StatelessWidget {
         ),
         body: Stack(
           children: [
-            Center(
-              child: Lottie.asset(
-                'assets/images/searchIcon.json',
-              ),
+            Padding(
+              padding: EdgeInsets.only(left: 10.w, top: 10.h),
+              child: Lottie.asset('assets/images/searchIcon.json',
+                  fit: BoxFit.contain),
             ),
 
             // Padding(
@@ -41,43 +42,40 @@ class Search extends StatelessWidget {
             // ),
             Column(children: [
               Padding(
-                padding: const EdgeInsets.all(20.0),
+                padding: EdgeInsets.only(top: 5.0.sp),
                 child: GestureDetector(
-                  child: Container(
-                    width: 300,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      color: Color(0xFFB2DFDB),
-                      borderRadius: BorderRadius.circular(25),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Row(
-                          children: [
-                            Text(
-                              '  Search of a Clinics',
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            SizedBox(
-                              width: 70,
-                            ),
-                            IconButton(
-                                onPressed: () {
-                                  showSearch(
-                                      context: context, delegate: Searchs());
-                                },
-                                icon: Icon(
-                                  Icons.search,
-                                  size: 20,
-                                ))
-                          ],
-                        )
-                      ],
+                  child: Center(
+                    child: Container(
+                      width: 300,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        color: Color(0xFFB2DFDB),
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Search for Clinic',
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          SizedBox(
+                            width: 70,
+                          ),
+                          IconButton(
+                              onPressed: () {
+                                showSearch(
+                                    context: context, delegate: Searchs());
+                              },
+                              icon: Icon(
+                                Icons.search,
+                                size: 20,
+                              ))
+                        ],
+                      ),
                     ),
                   ),
                   onTap: () {
