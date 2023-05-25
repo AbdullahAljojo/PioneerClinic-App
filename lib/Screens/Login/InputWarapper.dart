@@ -2,12 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-
 import 'InputField.dart';
+import 'View.dart';
 
-class InputWarapper extends StatelessWidget {
-  const InputWarapper({Key? key}) : super(key: key);
+class InputWarapper extends StatefulWidget {
+  InputWarapper({Key? key}) : super(key: key);
 
+  @override
+  State<InputWarapper> createState() => _InputWarapperState();
+}
+
+class _InputWarapperState extends State<InputWarapper> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -31,31 +36,14 @@ class InputWarapper extends StatelessWidget {
           const Padding(
             padding: EdgeInsets.all(10),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                "Don't have an account? ",
-                style:
-                    TextStyle(fontStyle: FontStyle.italic, color: Colors.white),
-              ),
-              InkWell(
-                child: Text(
-                  "Register",
-                  style: TextStyle(
-                    fontFamily: 'font',
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xffFFBA5A),
-                  ),
-                ),
-                onTap: () {
-                  Navigator.of(context)
-                      .pushNamedAndRemoveUntil('register', (route) => false);
-                },
-              )
-            ],
-          )
+          Padding(
+            padding: EdgeInsets.only(right: 18.w),
+            child: Text(
+              "Don't have an account? ",
+              style:
+                  TextStyle(fontStyle: FontStyle.italic, color: Colors.white),
+            ),
+          ),
         ],
       ),
     );

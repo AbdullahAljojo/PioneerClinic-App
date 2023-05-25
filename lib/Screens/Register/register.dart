@@ -17,7 +17,6 @@ import 'auth.dart';
 enum Gender {
   male,
   female,
-  Other,
 }
 
 Pattern pattern =
@@ -360,7 +359,7 @@ class _RegisterState extends State<Register> {
                     Row(
                       children: [
                         Text(
-                          "Creat account as Patient",
+                          "Creat account as User",
                           style: TextStyle(
                             fontFamily: 'font',
                             color: Colors.white,
@@ -1285,9 +1284,9 @@ Padding buildTextFormFieldAll(
                 )
               : IconButton(
                   icon: const Icon(
-                    FontAwesomeIcons.squareXmark,
+                    FontAwesomeIcons.xmark,
                     color: Colors.black54,
-                    size: 22,
+                    size: 20,
                   ),
                   onPressed: () => controllers.clear(),
                 )),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
 import '../../main.dart';
+import 'View.dart';
 
 class AppHeader extends StatefulWidget {
   AppHeader({Key? mykey}) : super(key: mykey);
@@ -29,24 +30,18 @@ class _AppHeaderState extends State<AppHeader> {
                       fontWeight: FontWeight.bold,
                       color: Color(0xff002C42)),
                 ),
-                Center(
+                Padding(
+                    padding: EdgeInsets.only(left: 22.w),
                     child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text("You are Login as",
-                        style: TextStyle(
-                            fontFamily: 'font',
-                            color: Color(0xff002C42),
-                            fontSize: 15.sp,
-                            fontWeight: FontWeight.w400)),
-                    Text(" a Doctor",
-                        style: TextStyle(
-                            fontFamily: 'font',
-                            color: Color(0xff002C42),
-                            fontSize: 15.sp,
-                            fontWeight: FontWeight.w400)),
-                  ],
-                )),
+                      children: [
+                        Text("You are Login as",
+                            style: TextStyle(
+                                fontFamily: 'font',
+                                color: Color(0xff002C42),
+                                fontSize: 15.sp,
+                                fontWeight: FontWeight.w400)),
+                      ],
+                    )),
               ],
             ),
             Container(
