@@ -33,34 +33,35 @@ class ClinicProfile extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        actions: [
-          IconButton(
-            padding: EdgeInsets.only(right: 2.w),
-            onPressed: () {},
-            icon: Icon(
-              Icons.send_and_archive_outlined,
-              size: 30.sp,
-              color: Colors.black54,
+        leading: BackButton(onPressed: () {
+          Navigator.of(context)
+              .pushNamedAndRemoveUntil('Home', (route) => false);
+        }),
+        centerTitle: true,
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              height: 100.h,
+              padding: EdgeInsets.only(right: 2.sp),
+              child: Image.asset(
+                'assets/images/ClinicLogo.png',
+                width: 40,
+              ),
             ),
-            color: Colors.black,
-          ),
-        ],
-        leading: Icon(
-          Icons.local_fire_department_rounded,
-          color: Color(0xff11CCC3),
-          size: 25.sp,
-        ),
-        title: Transform.translate(
-          offset: Offset(-5.w, 0),
-          child: Text(
-            'Clinic Profile',
-            style: TextStyle(
-              fontFamily: 'font',
-              color: Colors.black,
-              fontSize: 20.sp,
-              fontWeight: FontWeight.w500,
+            Text(
+              'Clinic Profile',
+              style: TextStyle(
+                fontFamily: 'font',
+                color: Colors.black,
+                fontSize: 20.sp,
+                fontWeight: FontWeight.w500,
+              ),
             ),
-          ),
+            SizedBox(
+              width: 40.sp,
+            )
+          ],
         ),
         toolbarHeight: 8.h,
         backgroundColor: Colors.white,

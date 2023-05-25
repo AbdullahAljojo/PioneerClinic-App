@@ -1,3 +1,4 @@
+import 'package:clinicmanagement/Screens/Homes/home.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
@@ -45,11 +46,18 @@ class _AppHeaderState extends State<AppHeader> {
               ],
             ),
             Container(
-              padding: EdgeInsets.only(top: 40),
+              padding: const EdgeInsets.only(top: 40),
               alignment: Alignment.topCenter,
               height: 170.sp,
               child: Lottie.asset('assets/images/login.json',
                   fit: BoxFit.cover, width: 250.sp),
+            ),
+            Container(
+              padding: const EdgeInsets.only(top: 65),
+              alignment: Alignment.topCenter,
+              height: 220.sp,
+              child: Image.asset('assets/images/ClinicLogo2.png',
+                  fit: BoxFit.contain, width: 140.sp),
             ),
           ],
         ),

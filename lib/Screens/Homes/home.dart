@@ -10,10 +10,10 @@ import '../doctor/doctor_screen.dart';
 import '../../models/clinic.dart';
 
 final List<Image> images = [
+  Image.asset('assets/images/3.jpg'),
   Image.asset('assets/images/2.jpg'),
   Image.asset('assets/images/1.jpg'),
   Image.asset('assets/images/4.jpg'),
-  Image.asset('assets/images/3.jpg'),
 ];
 
 bool _isPlaying = true;
