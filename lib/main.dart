@@ -62,7 +62,7 @@ class MyApp extends StatelessWidget {
                               ? ThemeMode.dark
                               : ThemeMode.light,
                           debugShowCheckedModeBanner: false,
-                          home: OnBoarding(),
+                          home: Profile(),
                           routes: {
                             'onBoarding': (context) => OnBoarding(),
                             'Login': (context) => LoginPage(),
