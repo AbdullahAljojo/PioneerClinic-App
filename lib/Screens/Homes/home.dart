@@ -66,7 +66,7 @@ class _HOMEState extends State<HOME> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: const [
                     Text(
-                      '  Search of a Clinics',
+                      'Search for Clinic',
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 15,
