@@ -34,10 +34,6 @@ class _SettingState extends State<Setting> {
     return Scaffold(
       body: Stack(
         children: [
-          Container(
-            alignment: Alignment.bottomCenter,
-            child: Lottie.asset('assets/images/setting.json'),
-          ),
           AnimationConfiguration.staggeredGrid(
               position: 1,
               duration: Duration(milliseconds: 375),
@@ -46,6 +42,17 @@ class _SettingState extends State<Setting> {
                   child: FadeInAnimation(
                 child: Stack(
                   children: [
+                    Container(
+                      height: MediaQuery.of(context).size.height,
+                      width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                        color: Color(0xffF0EFF5),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.only(top: 40.0.h),
+                        child: Lottie.asset('assets/images/setting.json'),
+                      ),
+                    ),
                     Padding(
                       padding: const EdgeInsets.only(top: 25.0, left: 40),
                       child: InkWell(
