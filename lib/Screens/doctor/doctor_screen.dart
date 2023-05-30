@@ -2,6 +2,7 @@ import 'package:clinicmanagement/Screens/doctor/state.dart';
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
 import '../../models/doctor.dart';
 import '../Homes/search.dart';
@@ -32,7 +33,7 @@ class DoctorScreen extends StatelessWidget {
                 ),
                 backgroundColor: Color(0xff11CCC3),
                 title: const Text(
-                  'Doctor of Kind',
+                  'Available Doctors',
                   style: TextStyle(
                     fontSize: 20,
                     fontFamily: 'font',
@@ -57,7 +58,14 @@ class DoctorScreen extends StatelessWidget {
                 builder: (context) => ListView.separated(
                   physics: const BouncingScrollPhysics(),
                   itemBuilder: (context, index) =>
-                      buildExpertList(doctors[index]),
+                      AnimationConfiguration.staggeredGrid(
+                          position: 1,
+                          duration: Duration(milliseconds: 475),
+                          columnCount: 2,
+                          child: FadeInAnimation(
+                            child: ScaleAnimation(
+                                child: buildExpertList(doctors[index])),
+                          )),
                   separatorBuilder: (context, index) => myDivider(),
                   itemCount: 10,
                 ),
