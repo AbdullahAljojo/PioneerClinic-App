@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
@@ -110,56 +111,63 @@ class _InputWarapperState extends State<InputWarapper> {
           SizedBox(
             height: 8.sp,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              InkWell(
-                onTap: () {
-                  setState(() {
-                    role = Role.User;
-                    widget.onRoleChanged(role);
-                  });
-                },
-                child: Container(
-                  decoration: BoxDecoration(
-                      color: role == Role.Doctor
-                          ? Colors.black26
-                          : Color(0xffFFBA5A),
-                      borderRadius: BorderRadius.circular(28)),
-                  width: 48,
-                  height: 48,
-                  child: Icon(
-                    FontAwesomeIcons.user,
-                    color: Colors.white,
+          AnimationConfiguration.staggeredGrid(
+            position: 1,
+            duration: Duration(milliseconds: 1075),
+            columnCount: 2,
+            child: ScaleAnimation(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  InkWell(
+                    onTap: () {
+                      setState(() {
+                        role = Role.User;
+                        widget.onRoleChanged(role);
+                      });
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: role == Role.Doctor
+                              ? Colors.black26
+                              : Color(0xffFFBA5A),
+                          borderRadius: BorderRadius.circular(28)),
+                      width: 48,
+                      height: 48,
+                      child: Icon(
+                        FontAwesomeIcons.user,
+                        color: Colors.white,
+                      ),
+                    ),
                   ),
-                ),
-              ),
-              SizedBox(
-                width: 4.w,
-              ),
-              InkWell(
-                onTap: () {
-                  setState(() {
-                    role = Role.Doctor;
-                    widget.onRoleChanged(role);
-                  });
-                },
-                child: Container(
-                  decoration: BoxDecoration(
-                      color: role == Role.User
-                          ? Colors.black26
-                          : Color(0xffFFBA5A),
-                      borderRadius: BorderRadius.circular(28)),
-                  width: 48,
-                  height: 48,
-                  child: Icon(
-                    FontAwesomeIcons.userDoctor,
-                    color: Colors.white,
+                  SizedBox(
+                    width: 4.w,
                   ),
-                ),
+                  InkWell(
+                    onTap: () {
+                      setState(() {
+                        role = Role.Doctor;
+                        widget.onRoleChanged(role);
+                      });
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: role == Role.User
+                              ? Colors.black26
+                              : Color(0xffFFBA5A),
+                          borderRadius: BorderRadius.circular(28)),
+                      width: 48,
+                      height: 48,
+                      child: Icon(
+                        FontAwesomeIcons.userDoctor,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            ],
-          ),
+            ),
+          )
         ],
       ),
     );

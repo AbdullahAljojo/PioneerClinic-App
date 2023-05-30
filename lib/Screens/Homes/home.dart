@@ -1,13 +1,14 @@
 import 'package:clinicmanagement/Screens/Homes/search.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_carousel_slider/carousel_slider.dart';
+import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
-
 import 'dummy_data/clinics_dummy_data.dart';
 import '../doctor/doctor_screen.dart';
 import '../../models/clinic.dart';
+import 'package:animations/animations.dart';
 
 final List<Image> images = [
   Image.asset('assets/images/3.jpg'),
@@ -26,8 +27,25 @@ class HOME extends StatefulWidget {
 }
 
 class _HOMEState extends State<HOME> {
+  late ScrollController _scrollController;
+  double _scrollControllerOffset = 0.0;
+  void _scrollListener() {
+    setState(() {
+      _scrollControllerOffset = _scrollController.offset;
+    });
+  }
+
+  @override
+  void initState() {
+    /// Creating a scroll controller and adding a listener to it.
+    _scrollController = ScrollController();
+    _scrollController.addListener(_scrollListener);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
+    final double scrollOffset = _scrollControllerOffset;
     return Column(children: [
       Container(
         height: 150.sp,
@@ -63,8 +81,13 @@ class _HOMEState extends State<HOME> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: const [
+                    Icon(
+                      FontAwesomeIcons.magnifyingGlass,
+                      size: 20,
+                      color: Colors.white,
+                    ),
                     Text(
                       'Search for Clinic',
                       style: TextStyle(
@@ -72,14 +95,7 @@ class _HOMEState extends State<HOME> {
                           fontSize: 15,
                           fontWeight: FontWeight.bold),
                     ),
-                    SizedBox(
-                      width: 75,
-                    ),
-                    Icon(
-                      FontAwesomeIcons.magnifyingGlass,
-                      size: 20,
-                      color: Colors.white,
-                    ),
+                    Text('')
                   ],
                 )
               ],
@@ -103,7 +119,14 @@ class _HOMEState extends State<HOME> {
                 mainAxisSpacing: 10,
                 crossAxisSpacing: 10,
                 mainAxisExtent: 200),
-            itemBuilder: (ctx, index) => buildClinicItem(ctx, clinics[index]),
+            itemBuilder: (ctx, index) => AnimationConfiguration.staggeredGrid(
+                position: 4,
+                duration: Duration(milliseconds: 375),
+                columnCount: 2,
+                child: ScaleAnimation(
+                    child: FadeInAnimation(
+                  child: buildClinicItem(ctx, clinics[index]),
+                ))),
             itemCount: clinics.length,
           ),
         ),

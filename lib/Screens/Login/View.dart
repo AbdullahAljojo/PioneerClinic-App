@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
@@ -35,23 +36,31 @@ class _LoginPageState extends State<LoginPage> {
                           fontWeight: FontWeight.w400)),
                 ),
                 AppHeader(),
-                Container(
-                  margin: EdgeInsets.only(top: 270.sp),
-                  height: MediaQuery.of(context).size.height / 1.7,
-                  decoration: BoxDecoration(
-                      color: Color(0xff11CCC3),
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(50),
-                        topRight: Radius.circular(50),
-                      )),
-                  child: InputWarapper(
-                    onRoleChanged: (Role newRole) {
-                      setState(() {
-                        role = newRole;
-                      });
-                    },
-                  ),
-                ),
+                AnimationConfiguration.staggeredGrid(
+                    position: 1,
+                    duration: Duration(milliseconds: 675),
+                    columnCount: 2,
+                    child: FlipAnimation(
+                      child: FadeInAnimation(
+                        child: Container(
+                          margin: EdgeInsets.only(top: 270.sp),
+                          height: MediaQuery.of(context).size.height / 1.7,
+                          decoration: BoxDecoration(
+                              color: Color(0xff11CCC3),
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(50),
+                                topRight: Radius.circular(50),
+                              )),
+                          child: InputWarapper(
+                            onRoleChanged: (Role newRole) {
+                              setState(() {
+                                role = newRole;
+                              });
+                            },
+                          ),
+                        ),
+                      ),
+                    ))
               ],
             ),
           ),

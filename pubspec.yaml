@@ -58,6 +58,7 @@ dependencies:
   intl: ^0.17.0
   font_awesome_flutter: ^10.4.0
   url_launcher: ^6.1.11
+  animations: 
   
 
 dev_dependencies:
