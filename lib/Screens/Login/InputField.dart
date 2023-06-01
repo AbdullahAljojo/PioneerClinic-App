@@ -1,3 +1,4 @@
+import 'package:clinicmanagement/components.dart/cachHelper.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lottie/lottie.dart';
@@ -60,6 +61,7 @@ class _InputFieldState extends State<InputField> {
         final String emailControl = emailcontroller.text;
         // sharedPref?.setString('_email', emailControl);
         // sharedPref?.setBool('isAuthorized', true);
+        // CacheHelper.saveData(key: 'token', value: 333token);
 
         showDialog(
             context: context,

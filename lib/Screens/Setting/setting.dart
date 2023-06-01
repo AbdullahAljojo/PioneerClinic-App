@@ -5,6 +5,7 @@ import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
+import '../../Components.dart/cachHelper.dart';
 import '../../main.dart';
 
 enum Theme {
@@ -38,7 +39,9 @@ class _SettingState extends State<Setting> {
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
-              color: Color(0xffF0EFF5),
+              color: SettingCubit.get(context).isDark
+                  ? Colors.black45
+                  : Color(0xffF0EFF5),
             ),
             child: Padding(
               padding: EdgeInsets.only(top: 40.0.h),
@@ -61,7 +64,9 @@ class _SettingState extends State<Setting> {
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20)),
                               elevation: 20,
-                              backgroundColor: Color(0xffF0EFF5),
+                              backgroundColor: SettingCubit.get(context).isDark
+                                  ? Colors.black45
+                                  : Color(0xffF0EFF5),
                               content: Column(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
@@ -71,7 +76,10 @@ class _SettingState extends State<Setting> {
                                       height: 80,
                                       width: MediaQuery.of(context).size.width,
                                       decoration: BoxDecoration(
-                                          color: Color(0xff11CCC3),
+                                          color:
+                                              SettingCubit.get(context).isDark
+                                                  ? Color(0xffFFBA5A)
+                                                  : Color(0xff11CCC3),
                                           borderRadius:
                                               BorderRadius.circular(20)),
                                       child: Row(
@@ -81,10 +89,10 @@ class _SettingState extends State<Setting> {
                                           Text(
                                             'Select Theme',
                                             style: TextStyle(
-                                                fontFamily: 'font',
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 15.sp,
-                                                color: Colors.white),
+                                              fontFamily: 'font',
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 15.sp,
+                                            ),
                                           ),
                                           SizedBox(
                                             width: 20.w,
@@ -95,7 +103,6 @@ class _SettingState extends State<Setting> {
                                               },
                                               child: Icon(
                                                 FontAwesomeIcons.xmark,
-                                                color: Colors.white,
                                               )),
                                         ],
                                       )),
@@ -103,7 +110,10 @@ class _SettingState extends State<Setting> {
                                     Radio<Theme>(
                                       value: Theme.Light,
                                       groupValue: theme,
-                                      activeColor: Color(0xff11CCC3),
+                                      activeColor:
+                                          SettingCubit.get(context).isDark
+                                              ? Colors.white
+                                              : Color(0xff11CCC3),
                                       onChanged: (Theme? value) {
                                         setState(() {
                                           theme = value!;
@@ -121,6 +131,7 @@ class _SettingState extends State<Setting> {
                                               fontSize: 13.sp)
                                           : TextStyle(
                                               fontFamily: 'font',
+                                              color: Colors.white,
                                               fontWeight: FontWeight.w500,
                                               fontSize: 13.sp),
                                     )
@@ -129,7 +140,7 @@ class _SettingState extends State<Setting> {
                                     Radio<Theme>(
                                       value: Theme.Dark,
                                       groupValue: theme,
-                                      activeColor: Color(0xff11CCC3),
+                                      activeColor: Color(0xffFFBA5A),
                                       onChanged: (Theme? value) {
                                         setState(() {
                                           theme = value!;
@@ -142,7 +153,7 @@ class _SettingState extends State<Setting> {
                                       style: theme == Theme.Dark
                                           ? TextStyle(
                                               fontFamily: 'font',
-                                              color: Color(0xff11CCC3),
+                                              color: Color(0xffFFBA5A),
                                               fontWeight: FontWeight.bold,
                                               fontSize: 13.sp)
                                           : TextStyle(
@@ -159,7 +170,12 @@ class _SettingState extends State<Setting> {
                                   ),
                                   Text(
                                     'System Default',
-                                    style: TextStyle(fontFamily: 'font'),
+                                    style: TextStyle(
+                                      fontFamily: 'font',
+                                      color: SettingCubit.get(context).isDark
+                                          ? Color(0xffFFBA5A)
+                                          : Color(0xff11CCC3),
+                                    ),
                                   ),
                                 ],
                               ),
@@ -170,6 +186,9 @@ class _SettingState extends State<Setting> {
                       width: 120.0.sp,
                       height: 120.0.sp,
                       child: Card(
+                        color: SettingCubit.get(context).isDark
+                            ? Colors.grey
+                            : Colors.white,
                         elevation: 2.0,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8.0)),
@@ -183,7 +202,9 @@ class _SettingState extends State<Setting> {
                               ),
                               Icon(
                                 FontAwesomeIcons.circleHalfStroke,
-                                color: Color(0xff11CCC3),
+                                color: SettingCubit.get(context).isDark
+                                    ? Color(0xffFFBA5A)
+                                    : Color(0xff11CCC3),
                               ),
                               SizedBox(
                                 height: 12.0.sp,
@@ -193,7 +214,10 @@ class _SettingState extends State<Setting> {
                                 style: TextStyle(
                                     fontFamily: 'font',
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 16.0.sp),
+                                    fontSize: 16.0.sp,
+                                    color: SettingCubit.get(context).isDark
+                                        ? Colors.white
+                                        : Colors.black),
                               ),
                               SizedBox(
                                 height: 5.0.sp,
@@ -203,7 +227,10 @@ class _SettingState extends State<Setting> {
                                 style: TextStyle(
                                     fontSize: 11.sp,
                                     fontFamily: 'font',
-                                    fontWeight: FontWeight.w100),
+                                    fontWeight: FontWeight.w100,
+                                    color: SettingCubit.get(context).isDark
+                                        ? Colors.white
+                                        : Colors.black),
                               )
                             ],
                           ),
@@ -228,6 +255,9 @@ class _SettingState extends State<Setting> {
                       width: 120.0.sp,
                       height: 120.0.sp,
                       child: Card(
+                        color: SettingCubit.get(context).isDark
+                            ? Colors.grey
+                            : Colors.white,
                         elevation: 2.0,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8.0)),
@@ -241,7 +271,9 @@ class _SettingState extends State<Setting> {
                               ),
                               Icon(
                                 FontAwesomeIcons.earthEurope,
-                                color: Color(0xff11CCC3),
+                                color: SettingCubit.get(context).isDark
+                                    ? Color(0xffFFBA5A)
+                                    : Color(0xff11CCC3),
                               ),
                               SizedBox(
                                 height: 15.0.sp,
@@ -251,7 +283,10 @@ class _SettingState extends State<Setting> {
                                 style: TextStyle(
                                     fontFamily: 'font',
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 16.0.sp),
+                                    fontSize: 16.0.sp,
+                                    color: SettingCubit.get(context).isDark
+                                        ? Colors.white
+                                        : Colors.black),
                               ),
                               SizedBox(
                                 height: 7.0.sp,
@@ -261,7 +296,10 @@ class _SettingState extends State<Setting> {
                                 style: TextStyle(
                                     fontSize: 11.sp,
                                     fontFamily: 'font',
-                                    fontWeight: FontWeight.w100),
+                                    fontWeight: FontWeight.w100,
+                                    color: SettingCubit.get(context).isDark
+                                        ? Colors.white
+                                        : Colors.black),
                               )
                             ],
                           ),
@@ -423,6 +461,9 @@ class _SettingState extends State<Setting> {
                           width: 120.0.sp,
                           height: 120.0.sp,
                           child: Card(
+                            color: SettingCubit.get(context).isDark
+                                ? Colors.grey
+                                : Colors.white,
                             elevation: 2.0,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(8.0)),
@@ -436,7 +477,9 @@ class _SettingState extends State<Setting> {
                                   ),
                                   Icon(
                                     FontAwesomeIcons.powerOff,
-                                    color: Color(0xff11CCC3),
+                                    color: SettingCubit.get(context).isDark
+                                        ? Color(0xffFFBA5A)
+                                        : Color(0xff11CCC3),
                                   ),
                                   SizedBox(
                                     height: 15.0.sp,
@@ -444,9 +487,13 @@ class _SettingState extends State<Setting> {
                                   Text(
                                     "Logout",
                                     style: TextStyle(
-                                        fontFamily: 'font',
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 16.0.sp),
+                                      fontFamily: 'font',
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16.0.sp,
+                                      color: SettingCubit.get(context).isDark
+                                          ? Colors.white
+                                          : Colors.black,
+                                    ),
                                   ),
                                   SizedBox(
                                     height: 7.0.sp,
@@ -454,9 +501,13 @@ class _SettingState extends State<Setting> {
                                   Text(
                                     "Thanks for visiting",
                                     style: TextStyle(
-                                        fontSize: 11.sp,
-                                        fontFamily: 'font',
-                                        fontWeight: FontWeight.w100),
+                                      fontSize: 11.sp,
+                                      fontFamily: 'font',
+                                      fontWeight: FontWeight.w100,
+                                      color: SettingCubit.get(context).isDark
+                                          ? Colors.white
+                                          : Colors.black,
+                                    ),
                                   )
                                 ],
                               ),

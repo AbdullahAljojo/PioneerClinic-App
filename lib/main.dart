@@ -1,4 +1,5 @@
 import 'package:clinicmanagement/Screens/Homes/bottomnav/bottomNavigation.dart';
+import 'package:clinicmanagement/Screens/Login/login%20Cubit.dart';
 import 'package:clinicmanagement/Screens/Proflies/ClinicProfile/ClinicProfile.dart';
 import 'package:clinicmanagement/Screens/infoDoctor/profile.dart';
 import 'package:clinicmanagement/Screens/infoDoctor/profileCubit.dart';
@@ -46,6 +47,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
         providers: [
           BlocProvider(create: (BuildContext context) => ProfileCubit()),
+          BlocProvider(create: (BuildContext context) => LoginCubit()),
         ],
         child: BlocProvider(
             create: (context) => SettingCubit()..changeMode(fromShared: isDark),
@@ -62,7 +64,7 @@ class MyApp extends StatelessWidget {
                               ? ThemeMode.dark
                               : ThemeMode.light,
                           debugShowCheckedModeBanner: false,
-                          home: LoginPage(),
+                          home: NavBarScreen(),
                           routes: {
                             'onBoarding': (context) => OnBoarding(),
                             'Login': (context) => LoginPage(),
