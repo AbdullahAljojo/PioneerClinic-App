@@ -62,14 +62,14 @@ class MyApp extends StatelessWidget {
                               ? ThemeMode.dark
                               : ThemeMode.light,
                           debugShowCheckedModeBanner: false,
-                          home: Profile(),
+                          home: NavBarScreen(),
                           routes: {
                             'onBoarding': (context) => OnBoarding(),
                             'Login': (context) => LoginPage(),
                             'Setting': (context) => Setting(),
                             'MedicalInfo': (context) => MedicalInfo(),
                             'Home': (context) => NavBarScreen(),
-                            //'ClinicProfile': (context) => ClinicProfile(),
+                            'ClinicProfile': (context) => ClinicProfile(),
                             'register': (context) => Register(),
                             'Search': (context) => Search(),
                           });

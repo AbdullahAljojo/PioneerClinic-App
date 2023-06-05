@@ -25,7 +25,9 @@ class Profile extends StatelessWidget {
     var priceController = TextEditingController();
     var phoneController = TextEditingController();
     return BlocConsumer<ProfileCubit, ProfileStates>(
-       listener: (context, state) {},
+       listener: (context, state) {
+      
+       },
       builder: (context, state) => SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).requestFocus(FocusNode()),

@@ -41,7 +41,7 @@ class _NavBarScreenState extends State<NavBarScreen> {
         ),
       );
   AppBar get profileAppBar => AppBar(
-        backgroundColor: Colors.white,
+       // backgroundColor: Colors.white,
         elevation: 0.0,
         title: const Text(
           'Profile',
@@ -54,12 +54,12 @@ class _NavBarScreenState extends State<NavBarScreen> {
       );
 
   AppBar get homeAppBar => AppBar(
-        backgroundColor: Colors.white,
+      //  backgroundColor: Colors.white,
         elevation: 0.0,
         title: const Text(
           'find a way easily',
           style: TextStyle(
-              color: Colors.black,
+              //color: Colors.black,
               fontSize: 20,
               fontWeight: FontWeight.bold,
               fontFamily: 'font'),
@@ -111,7 +111,7 @@ class _NavBarScreenState extends State<NavBarScreen> {
     return Scaffold(
       bottomNavigationBar: Container(
           decoration: BoxDecoration(
-            color: Colors.white,
+           // color: Colors.white,
             boxShadow: [
               BoxShadow(
                 blurRadius: 20,

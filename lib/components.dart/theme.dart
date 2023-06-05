@@ -61,6 +61,7 @@ ThemeData dark = ThemeData(
   appBarTheme: AppBarTheme(
       backgroundColor:HexColor('333739') ,
       elevation: 0.0,
+      foregroundColor: Colors.white,
       titleTextStyle: TextStyle(color: Colors.white, fontSize: 30),
       iconTheme: IconThemeData(color: Colors.white),
       // backwardsCompatibility: false,

@@ -1,3 +1,4 @@
+import 'package:clinicmanagement/components.dart/shared.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
@@ -5,6 +6,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../components.dart/cachHelper.dart';
+import 'LogIn/View.dart';
 
 class BoardingModel {
   String? image;
@@ -55,8 +57,8 @@ class _OnBoardingState extends State<OnBoarding> {
                   onPressed: () {
                     CacheHelper.saveData(key: 'onBoarding', value: true).then(
                       (value) {
-                        // if (value == true)
-                        //  navigateAndFinish(context, ShopLogin());
+                        if (value == true)
+                          navigateTo(context, const LoginPage());
                       },
                     );
                   },
@@ -116,7 +118,7 @@ class _OnBoardingState extends State<OnBoarding> {
                         CacheHelper.saveData(key: 'onBoarding', value: true)
                             .then((value) {
                           if (value == true) {
-                            //  navigateAndFinish(context, ShopLogin());
+                            navigateTo(context, LoginPage());
                           }
                         });
                       }
