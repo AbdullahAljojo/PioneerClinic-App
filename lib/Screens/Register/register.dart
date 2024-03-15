@@ -234,7 +234,7 @@ void register(BuildContext context) async {
         : '';
   });
   print('${state}');
- // print('${sharedPref?.getString('token_reg')}');
+  // print('${sharedPref?.getString('token_reg')}');
 }
 
 // void create_expert() async {
@@ -677,12 +677,8 @@ class _RegisterState extends State<Register> {
                                     TextButton(
                                       onPressed: () {
                                         Navigator.of(context)
-                                            .pushAndRemoveUntil(
-                                                MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        LoginPage()),
-                                                (Route<dynamic> route) =>
-                                                    false);
+                                            .pushNamedAndRemoveUntil(
+                                                'Login', (route) => false);
                                       },
                                       child: Text(
                                         'Login',
@@ -859,12 +855,12 @@ class _RegisterState extends State<Register> {
                                       if (xfile != null) {
                                         setState(() {
                                           _path = xfile.path;
-                                         // sharedPref?.setString("path", _path!);
+                                          // sharedPref?.setString("path", _path!);
                                         });
                                       } else {
                                         setState(() {
                                           _path = null;
-                                        //  sharedPref?.setString("path", _path!);
+                                          //  sharedPref?.setString("path", _path!);
                                         });
                                       }
                                     },

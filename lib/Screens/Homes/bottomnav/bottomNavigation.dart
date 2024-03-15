@@ -5,6 +5,7 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
+import '../../Setting/settingCubit.dart';
 import '../home.dart';
 import '../../Setting/setting.dart';
 import '../../infoDoctor/p.dart';
@@ -70,7 +71,7 @@ class _NavBarScreenState extends State<NavBarScreen> {
                 showDialog(
                     context: context,
                     builder: (context) {
-                      Future.delayed(const Duration(seconds: 2),
+                      Future.delayed(const Duration(seconds: 1),
                           () => Navigator.of(context).pop());
                       return Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -132,7 +133,9 @@ class _NavBarScreenState extends State<NavBarScreen> {
                       padding: const EdgeInsets.symmetric(
                           horizontal: 12, vertical: 8),
                       duration: const Duration(milliseconds: 100),
-                      tabBackgroundColor: Color(0xFF11CCC3),
+                      tabBackgroundColor: SettingCubit.get(context).isDark
+                          ? Color(0xffFFBA5A)
+                          : Color(0xff11CCC3),
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       //Colors.grey[100]!,
                       color: Colors.black,
